@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ─── Theme Management ────────────────────────────────────────────────────────
 function initTheme() {
-  const savedTheme = localStorage.getItem("theme") || "light";
+  const savedTheme = localStorage.getItem("na_dobble_theme") || "light";
   document.documentElement.setAttribute("data-theme", savedTheme);
 }
 
