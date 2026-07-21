@@ -1067,3 +1067,13 @@ function getNAName(item, lang) {
 function getAAName(item, lang) {
   return getNAName(item, lang);
 }
+
+/**
+ * Returns sub-array of nucleic acids based on version.
+ * mini: 7, full: 21
+ */
+function getNucleicAcidsForVersion(version) {
+  if (version === "mini") return NUCLEIC_ACIDS.slice(0, 7);
+  return NUCLEIC_ACIDS;
+}
+
