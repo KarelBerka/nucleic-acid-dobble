@@ -68,7 +68,7 @@ const NUCLEIC_ACIDS = [
     descEn: "Pyrimidine nucleobase specific to DNA. Also known as 5-methyluracil.",
     descDe: "Für die DNA spezifische Pyrimidin-Nukleobase. Auch bekannt als 5-Methyluracil.",
     descFr: "Base azotée pyrimidique spécifique de l'ADN. Également connue sous le nom de 5-méthyluracile.",
-    smiles: "Cc1cn[nH]c(=O)c1=O",
+    smiles: "CC1=CNC(=O)NC1=O",
     structure: {
       atoms: [
         { x: 30, y: 70, label: "NH", type: "N" },  // 0
@@ -969,7 +969,7 @@ const ATOM_STYLES = {
  * @param {number} bondWidth Thickness of the bond lines
  * @returns {string} The SVG element as HTML string
  */
-function renderStructureToSVG(structure, width = 140, height = 140, bondColor = "#2D3748", bondWidth = 2.5) {
+function renderStructureToSVG(structure, width = 140, height = 140, bondColor = "#000000", bondWidth = 2.0) {
   let minX = Infinity, maxX = -Infinity;
   let minY = Infinity, maxY = -Infinity;
   
@@ -1027,16 +1027,21 @@ function renderStructureToSVG(structure, width = 140, height = 140, bondColor = 
     const cleanLabel = atom.label ? atom.label.replace(/[\u2080-\u2089]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x2080 + 48)) : "";
     const isAliphaticCarbon = atom.label && /^(CH\d*|H\d*C|C)$/i.test(cleanLabel);
     if (atom.label && !isAliphaticCarbon) {
-      const style = ATOM_STYLES[atom.type] || { color: bondColor, bg: "#FFFFFF", radius: 8 };
+      let color = "#000000";
+      if (atom.type === "O") color = "#d32f2f"; // Wikipedia Red
+      if (atom.type === "N") color = "#1976d2"; // Wikipedia Blue
+      if (atom.type === "S") color = "#d97706"; // Wikipedia Gold
+      if (atom.type === "P") color = "#7b1fa2"; // Wikipedia Purple
+
       let labelWidth = atom.label.length * 7;
       let labelHeight = 12;
       
       svgContent += `
-        <rect x="${atom.x - labelWidth/2}" y="${atom.y - labelHeight}" width="${labelWidth}" height="${labelHeight * 1.5}" fill="#FFFFFF" rx="3" ry="3"/>
+        <rect x="${atom.x - labelWidth/2}" y="${atom.y - labelHeight}" width="${labelWidth}" height="${labelHeight * 1.5}" fill="#FFFFFF" />
       `;
       
       svgContent += `
-        <text x="${atom.x}" y="${atom.y + 2}" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="bold" fill="${style.color}" text-anchor="middle" dominant-baseline="middle">${atom.label}</text>
+        <text x="${atom.x}" y="${atom.y + 2}" font-family="Arial, Helvetica, sans-serif" font-size="11px" font-weight="normal" fill="${color}" text-anchor="middle" dominant-baseline="middle">${atom.label}</text>
       `;
     }
   });

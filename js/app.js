@@ -433,12 +433,15 @@ function renderEncyclopedia() {
         <span class="na-code1">${item.code1}</span>
       </div>
 
-      <div class="na-structure-container">
-        <div class="na-structure-preview" title="2D Structure">
+      <div class="na-structure-container" style="display: flex; gap: 1rem; justify-content: center; align-items: center; background: rgba(255,255,255,0.7); padding: 0.5rem; border-radius: 8px; border: 1px dashed var(--border-color); margin-bottom: 0.75rem;">
+        <div class="na-structure-preview" title="2D Structure" style="flex: 1; display: flex; align-items: center; justify-content: center;">
           ${renderStructureToSVG(item.structure, "100%", "100%")}
         </div>
+        <div class="na-structure-preview" title="3D Model (PyMOL)" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/structures/${item.code3.toLowerCase().replace('ψ','pseudou')}.png" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'">
+        </div>
       </div>
-
+      
       <div class="na-formula"><strong>Formula:</strong> ${item.formula} (${item.condensed})</div>
       <div class="na-desc">${item["desc" + (lang === "cs" ? "" : lang.charAt(0).toUpperCase() + lang.slice(1))] || item.desc}</div>
     </div>
@@ -556,9 +559,10 @@ function renderGeneratorPreview() {
         classes += " item-structure";
         content = renderStructureToSVG(na.structure, "100%", "100%");
       } else if (rep === 5) {
-        content = `<span class="item-smiles">${na.smiles}</span>`;
+        const cleanCode = na.code3.toLowerCase().replace("ψ", "pseudou");
+        content = `<img src="assets/structures/${cleanCode}.png" style="width:48px;height:48px;object-fit:contain;" onerror="this.style.display='none'">`;
       } else {
-        content = `<span class="item-text item-subtext">${na.groupCz || na.formula}</span>`;
+        content = `<span class="item-smiles" style="font-size:0.55rem;word-break:break-all;line-height:1.1;display:block;max-width:65px;">${na.smiles}</span>`;
       }
 
       itemsHTML += `
