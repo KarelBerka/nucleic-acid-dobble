@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NA-Dobble: Nukleové kyseliny</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header with Glassmorphic Nav -->
+    <header>
+      <div class="nav-content">
+        <div class="logo-group">
+          <a href="../bio-dobble/index.html" class="portal-back-link" title="BioDobble Portal" data-translate="portal_back">
+            ← BioDobble Portal
+          </a>
+          <a href="#" class="logo">
+            <div class="logo-icon-helix">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 15c6.667-6 13.333-6 20 0"></path>
+                <path d="M2 9c6.667 6 13.333 6 20 0"></path>
+                <line x1="7" y1="12" x2="7" y2="15"></line>
+                <line x1="12" y1="9.5" x2="12" y2="14.5"></line>
+                <line x1="17" y1="9" x2="17" y2="12"></line>
+              </svg>
+            </div>
+            <span>NA-Dobble</span>
+          </a>
+        </div>
+        
+        <nav class="nav-tabs">
+          <button class="tab-btn active" data-tab="home-tab" data-translate="tab_home">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Úvod
+          </button>
+          <button class="tab-btn" data-tab="encyclopedia-tab" data-translate="tab_encyclopedia">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            Encyklopedie
+          </button>
+          <button class="tab-btn" data-tab="game-tab" data-translate="tab_game">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Tréninková Hra
+          </button>
+          <button class="tab-btn" data-tab="generator-tab" data-translate="tab_generator">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+            Generátor Karet
+          </button>
+        </nav>
+
+        <div class="header-controls">
+          <!-- Mode Switcher Pill (Mini vs Full) -->
+          <div class="version-switcher" title="Přepnout verzi balíčku">
+            <button class="version-btn" id="version-btn-mini" data-translate="mode_mini">Mini (q=2)</button>
+            <button class="version-btn active" id="version-btn-full" data-translate="mode_full">Plná (q=4)</button>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button class="theme-toggle-btn" id="theme-toggle" title="Změnit barevné téma">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+
+          <!-- Language Selector -->
+          <select id="lang-toggle" title="Jazyk / Language" style="background: var(--bg-card-solid); border: 1px solid var(--border-color); color: var(--text-main); font-family: var(--font-primary); font-weight: 700; font-size: 0.85rem; border-radius: 12px; padding: 0 10px; height: 40px; cursor: pointer; outline: none; transition: all 0.2s ease;">
+            <option value="cs">CZ</option>
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main>
+      <!-- --- Tab 1: Home --- -->
+      <section id="home-tab" class="tab-content active">
+        <div class="hero-section">
+          <div class="hero-text">
+            <h1 data-translate="hero_title">NA-Dobble s nukleovými kyselinami</h1>
+            <p data-translate="hero_desc">Vítejte v interaktivním generátoru a trenažéru Dobble zaměřeném na <strong>nukleové kyseliny</strong>. Hra spojuje <strong>významy</strong>: strukturní vzorce, české a anglické názvy, vzorce a zkratky dusíkatých bází, cukrů, nukleosidů, nukleotidů i modifikací v tRNA.</p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="switchTab('game-tab')" data-translate="hero_btn_play">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Hrát Hru
+              </button>
+              <button class="btn btn-secondary" onclick="switchTab('generator-tab')" data-translate="hero_btn_print">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line></svg>
+                Tisknout Karty
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="floating-cards">
+              <div class="visual-card visual-card-1">
+                <svg width="110" height="110" viewBox="0 0 100 100">
+                  <polygon points="35,25 65,25 80,50 65,75 35,75 20,50" fill="none" stroke="#0284c7" stroke-width="4"/>
+                  <text x="50" y="55" font-family="Outfit, sans-serif" font-size="20" font-weight="bold" fill="#0284c7" text-anchor="middle">Adenin</text>
+                </svg>
+              </div>
+              <div class="visual-card visual-card-2">
+                <svg width="110" height="110" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="35" fill="none" stroke="#06b6d4" stroke-width="4"/>
+                  <text x="50" y="55" font-family="Outfit, sans-serif" font-size="22" font-weight="900" fill="#06b6d4" text-anchor="middle">ATP</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title" data-translate="how_title">Jak hra funguje?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📐</div>
+            <h3 data-translate="feat_math_title">Matematické principy PG(2,q)</h3>
+            <p data-translate="feat_math_desc">Využívá projektivní rovinu nad konečnými tělesy. V <strong>Mini verzi (q=2)</strong> má balíček 7 karet se 3 symboly. V <strong>Plné verzi (q=4)</strong> obsahuje přesně 21 karet s 5 symboly. Dvě karty mají <strong>vždy právě 1 společný prvek</strong>.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔬</div>
+            <h3 data-translate="feat_meaning_title">Párování podle významu</h3>
+            <p data-translate="feat_meaning_desc">Společný symbol má na kartách odlišnou formu (např. strukturní vzorec báze na jedné a zkratka nukleotidu či český název na druhé). Zjištění shody vyžaduje znalost biochemie!</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🖨️</div>
+            <h3 data-translate="feat_print_title">Export pro tisk</h3>
+            <p data-translate="feat_print_desc">Přizpůsobte si tvar karet (kulaté / čtvercové), rotaci symbolů, počet karet na stránku A4 a vytiskněte si připravenou výukovou sadu.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- --- Tab 2: Encyclopedia --- -->
+      <section id="encyclopedia-tab" class="tab-content">
+        <div class="ref-toolbar">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Hledat podle názvu, vzorce nebo zkratky..." data-translate="search_placeholder">
+          </div>
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all" data-translate="filter_all">Všechny</button>
+            <button class="filter-btn" data-filter="bases" data-translate="filter_bases">Dusíkaté báze</button>
+            <button class="filter-btn" data-filter="sugars" data-translate="filter_sugars">Cukry (Pentózy)</button>
+            <button class="filter-btn" data-filter="nucleosides" data-translate="filter_nucleosides">Nukleosidy</button>
+            <button class="filter-btn" data-filter="nucleotides" data-translate="filter_nucleotides">Nukleotidy</button>
+            <button class="filter-btn" data-filter="trna_modified" data-translate="filter_trna_modified">tRNA speciality</button>
+          </div>
+        </div>
+
+        <div class="na-grid" id="na-grid">
+          <!-- Cards rendered by JS -->
+        </div>
+      </section>
+
+      <!-- --- Tab 3: Interactive Training Game --- -->
+      <section id="game-tab" class="tab-content">
+        <div class="game-container" id="game-container">
+          <!-- Game screen rendered by game.js -->
+        </div>
+      </section>
+
+      <!-- --- Tab 4: Generator & Printing --- -->
+      <section id="generator-tab" class="tab-content">
+        <div class="generator-layout">
+          <!-- Settings Sidebar -->
+          <div class="generator-settings">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;" data-translate="print_settings_title">Nastavení tiskovin</h3>
+            
+            <div class="settings-group">
+              <label data-translate="version_label">Verze balíčku</label>
+              <select id="set-version-mode" class="select-control">
+                <option value="mini" data-translate="mode_mini">Mini (q=2, 7 symbolů)</option>
+                <option value="full" data-translate="mode_full">Plná (q=4, 21 symbolů)</option>
+              </select>
+            </div>
+
+            <div class="settings-group">
+              <label data-translate="card_shape_label">Tvar karet</label>
+              <select id="set-card-shape" class="select-control">
+                <option value="circle" data-translate="shape_circle">Kulaté (Tradiční Dobble)</option>
+                <option value="square" data-translate="shape_square">Čtvercové (Snazší stříhání)</option>
+              </select>
+            </div>
+
+            <div class="settings-group">
+              <label data-translate="print_layout_label">Počet karet na stránku (A4)</label>
+              <select id="set-page-layout" class="select-control">
+                <option value="6" selected data-translate="layout_6">6 karet (Velké - 95 mm)</option>
+                <option value="4" data-translate="layout_4">4 karty (Obří - 100 mm)</option>
+                <option value="8" data-translate="layout_8">8 karet (Střední - 71 mm)</option>
+                <option value="12" data-translate="layout_12">12 karet (Malé - 66 mm)</option>
+              </select>
+            </div>
+
+            <div class="settings-group">
+              <label class="checkbox-control">
+                <input type="checkbox" id="set-random-rotation" checked>
+                <span data-translate="rotate_symbols_label">Náhodně otáčet symboly</span>
+              </label>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-left: 28px;" data-translate="rotate_symbols_sub">Zvyšuje obtížnost rotací textů a vzorců.</div>
+            </div>
+
+            <div class="settings-group">
+              <label class="checkbox-control">
+                <input type="checkbox" id="set-guarantee-diff-reps" checked>
+                <span data-translate="guarantee_diff_label">Vždy odlišné reprezentace</span>
+              </label>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-left: 28px;" data-translate="guarantee_diff_sub">Zaručí, že společný prvek má na obou kartách jinou formu.</div>
+            </div>
+
+            <div class="settings-group">
+              <label data-translate="active_reps_label">Aktivní reprezentace</label>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;" data-translate="active_reps_sub">Vyberte typy zobrazení:</div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="0" checked> <span data-translate="rep_name">Název (podle jazyka)</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="1" checked> <span data-translate="rep_alt_name">Vzorec / Popis</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="2" checked> <span data-translate="rep_code3">3písmenný / Krátký kód</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="3" checked> <span data-translate="rep_code1">Jednopísmenný kód</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="4" checked> <span data-translate="rep_structure2d">2D Chemický vzorec</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="5" checked> <span data-translate="rep_smiles">SMILES řetězec</span></label>
+                <label class="checkbox-control rep-checkbox"><input type="checkbox" value="6" checked> <span data-translate="rep_group">Kategorie / Skupina</span></label>
+              </div>
+            </div>
+
+            <div class="settings-group">
+              <label class="checkbox-control">
+                <input type="checkbox" id="set-show-cheat">
+                <span data-translate="show_cheat_label">Zobrazit tahák (řešení)</span>
+              </label>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-left: 28px;" data-translate="show_cheat_sub">Vytiskne drobný seznam prvků do rohu karty.</div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-print-deck" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <span data-translate="btn_print">Tisknout sadu karet</span>
+            </button>
+          </div>
+
+          <!-- Preview Area -->
+          <div class="generator-preview">
+            <div class="generator-preview-title">
+              <h3 data-translate="preview_title">Náhled karet</h3>
+              <button class="btn btn-secondary" id="btn-regenerate-deck">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                <span data-translate="btn_regenerate">Přegenerovat sady</span>
+              </button>
+            </div>
+
+            <div id="cards-preview-container">
+              <!-- Dobble cards grid rendered by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer data-translate="footer_text">
+      <p>&copy; 2026 NA-Dobble. Autor: <a href="https://karelberka.github.io" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 700; text-decoration: none;">Karel Berka</a>. Součást výukového portálu <a href="../bio-dobble/index.html" style="color: var(--primary); font-weight: 700;">BioDobble</a>.</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/dobble.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
