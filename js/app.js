@@ -72,7 +72,7 @@ const TRANSLATIONS = {
     btn_print: "Tisknout sadu karet",
     preview_title: "Náhled karet",
     btn_regenerate: "Přegenerovat sady",
-    footer_text: "<p>&copy; 2026 NA-Dobble. Autor: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. Součást výukového portálu <a href=\"../bio-dobble/index.html\" style=\"color: var(--primary); font-weight: 700;\">BioDobble</a>.</p>"
+    footer_text: "<p>&copy; 2026 NA-Dobble. Součást <a href=\"https://karelberka.github.io/bio-dobble/\" style=\"color: var(--primary); font-weight: 700;\">BioDobble Portal</a>. Autor: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. <a href=\"https://github.com/KarelBerka/nucleic-acid-dobble\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">GitHub</a>.</p>"
   },
   en: {
     tab_home: "Home",
@@ -128,7 +128,7 @@ const TRANSLATIONS = {
     btn_print: "Print Card Deck",
     preview_title: "Card Preview",
     btn_regenerate: "Regenerate Decks",
-    footer_text: "<p>&copy; 2026 NA-Dobble. Author: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. Part of the <a href=\"../bio-dobble/index.html\" style=\"color: var(--primary); font-weight: 700;\">BioDobble</a> educational portal.</p>"
+    footer_text: "<p>&copy; 2026 NA-Dobble. Part of <a href=\"https://karelberka.github.io/bio-dobble/\" style=\"color: var(--primary); font-weight: 700;\">BioDobble Portal</a>. Author: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. <a href=\"https://github.com/KarelBerka/nucleic-acid-dobble\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">GitHub</a>.</p>"
   },
   de: {
     tab_home: "Startseite",
@@ -184,7 +184,7 @@ const TRANSLATIONS = {
     btn_print: "Kartensatz drucken",
     preview_title: "Kartenvorschau",
     btn_regenerate: "Decks neu generieren",
-    footer_text: "<p>&copy; 2026 NA-Dobble. Autor: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. Teil des Bildungsportals <a href=\"../bio-dobble/index.html\" style=\"color: var(--primary); font-weight: 700;\">BioDobble</a>.</p>"
+    footer_text: "<p>&copy; 2026 NA-Dobble. Teil von <a href=\"https://karelberka.github.io/bio-dobble/\" style=\"color: var(--primary); font-weight: 700;\">BioDobble Portal</a>. Autor: <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. <a href=\"https://github.com/KarelBerka/nucleic-acid-dobble\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">GitHub</a>.</p>"
   },
   fr: {
     tab_home: "Accueil",
@@ -240,7 +240,7 @@ const TRANSLATIONS = {
     btn_print: "Imprimer le jeu",
     preview_title: "Aperçu des cartes",
     btn_regenerate: "Régénérer le paquet",
-    footer_text: "<p>&copy; 2026 NA-Dobble. Auteur : <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. Fait partie du portail éducatif <a href=\"../bio-dobble/index.html\" style=\"color: var(--primary); font-weight: 700;\">BioDobble</a>.</p>"
+    footer_text: "<p>&copy; 2026 NA-Dobble. Fait partie de <a href=\"https://karelberka.github.io/bio-dobble/\" style=\"color: var(--primary); font-weight: 700;\">BioDobble Portal</a>. Auteur : <a href=\"https://karelberka.github.io\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">Karel Berka</a>. <a href=\"https://github.com/KarelBerka/nucleic-acid-dobble\" target=\"_blank\" rel=\"noopener\" style=\"color: var(--primary); font-weight: 700; text-decoration: none;\">GitHub</a>.</p>"
   }
 };
 
