@@ -372,11 +372,13 @@ class NADobbleGame {
         classes += " item-structure";
         content = renderStructureToSVG(na.structure, "100%", "100%");
       } else if (rep === 5) {
-        // SMILES
-        content = `<span class="item-smiles">${na.smiles}</span>`;
+        // 3D Model (PyMOL)
+        classes += " item-structure";
+        const cleanCode = na.code3.toLowerCase().replace("ψ", "pseudou");
+        content = `<img src="assets/structures/${cleanCode}.png" onerror="this.style.display='none'">`;
       } else {
-        // Formula / Category
-        content = `<span class="item-text item-subtext">${na.groupCz || na.formula}</span>`;
+        // SMILES
+        content = `<span class="item-smiles" style="font-size:0.55rem;word-break:break-all;line-height:1.1;display:block;max-width:65px;">${na.smiles}</span>`;
       }
       
       itemsHTML += `

@@ -559,8 +559,9 @@ function renderGeneratorPreview() {
         classes += " item-structure";
         content = renderStructureToSVG(na.structure, "100%", "100%");
       } else if (rep === 5) {
+        classes += " item-structure";
         const cleanCode = na.code3.toLowerCase().replace("ψ", "pseudou");
-        content = `<img src="assets/structures/${cleanCode}.png" style="width:48px;height:48px;object-fit:contain;" onerror="this.style.display='none'">`;
+        content = `<img src="assets/structures/${cleanCode}.png" onerror="this.style.display='none'">`;
       } else {
         content = `<span class="item-smiles" style="font-size:0.55rem;word-break:break-all;line-height:1.1;display:block;max-width:65px;">${na.smiles}</span>`;
       }

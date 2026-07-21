@@ -836,8 +836,8 @@ main {
 .item-structure svg,
 .item-structure img {
   display: block;
-  width: calc(33cqi * var(--scale, 1));
-  height: calc(33cqi * var(--scale, 1));
+  width: calc(42cqi * var(--scale, 1));
+  height: calc(42cqi * var(--scale, 1));
   object-fit: contain;
 }
 
