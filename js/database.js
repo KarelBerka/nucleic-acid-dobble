@@ -26,29 +26,19 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ncnc2[nH]cnc12",
     structure: {
       atoms: [
-        { x: 25, y: 55, label: "N", type: "N" },   // 0
-        { x: 25, y: 35, label: "", type: "C" },    // 1
-        { x: 40, y: 25, label: "N", type: "N" },   // 2
-        { x: 55, y: 35, label: "", type: "C" },    // 3
-        { x: 55, y: 55, label: "", type: "C" },    // 4
-        { x: 40, y: 65, label: "", type: "C" },    // 5
-        { x: 40, y: 85, label: "NH₂", type: "N" }, // 6
-        { x: 70, y: 65, label: "N", type: "N" },   // 7
-        { x: 78, y: 45, label: "", type: "C" },    // 8
-        { x: 70, y: 28, label: "NH", type: "N" }   // 9
+        { x: 70.0, y: 21.1, label: "NH₂", type: "N" },
+        { x: 64.8, y: 38.9, label: "", type: "C" },
+        { x: 77.6, y: 52.2, label: "N", type: "N" },
+        { x: 72.5, y: 70.0, label: "", type: "C" },
+        { x: 54.6, y: 74.4, label: "N", type: "N" },
+        { x: 41.8, y: 61.1, label: "", type: "C" },
+        { x: 23.3, y: 61.7, label: "NH", type: "N" },
+        { x: 17.0, y: 44.3, label: "", type: "C" },
+        { x: 31.6, y: 33.0, label: "N", type: "N" },
+        { x: 46.9, y: 43.3, label: "", type: "C" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 },
-        { from: 1, to: 2, type: 1 },
-        { from: 2, to: 3, type: 2 },
-        { from: 3, to: 4, type: 1 },
-        { from: 4, to: 5, type: 2 },
-        { from: 5, to: 0, type: 1 },
-        { from: 5, to: 6, type: 1 },
-        { from: 4, to: 7, type: 1 },
-        { from: 7, to: 8, type: 2 },
-        { from: 8, to: 9, type: 1 },
-        { from: 9, to: 3, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 2 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 1, type: 2 }, { from: 9, to: 5, type: 1 }
       ]
     }
   },
@@ -71,26 +61,18 @@ const NUCLEIC_ACIDS = [
     smiles: "CC1=CNC(=O)NC1=O",
     structure: {
       atoms: [
-        { x: 30, y: 70, label: "NH", type: "N" },  // 0
-        { x: 30, y: 45, label: "", type: "C" },    // 1
-        { x: 15, y: 35, label: "O", type: "O" },   // 2
-        { x: 45, y: 35, label: "NH", type: "N" },  // 3
-        { x: 65, y: 45, label: "", type: "C" },    // 4
-        { x: 80, y: 35, label: "O", type: "O" },   // 5
-        { x: 65, y: 70, label: "", type: "C" },    // 6
-        { x: 82, y: 82, label: "CH₃", type: "C" }, // 7
-        { x: 45, y: 80, label: "", type: "C" }     // 8
+        { x: 78.2, y: 59.7, label: "CH₃", type: "C" },
+        { x: 62.9, y: 56.1, label: "", type: "C" },
+        { x: 52.2, y: 67.6, label: "", type: "C" },
+        { x: 36.9, y: 64.0, label: "NH", type: "N" },
+        { x: 32.3, y: 49.0, label: "", type: "C" },
+        { x: 17.0, y: 45.4, label: "O", type: "O" },
+        { x: 43.1, y: 37.5, label: "NH", type: "N" },
+        { x: 58.4, y: 41.1, label: "", type: "C" },
+        { x: 69.1, y: 29.6, label: "O", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 1, to: 2, type: 2 },
-        { from: 1, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 },
-        { from: 4, to: 5, type: 2 },
-        { from: 4, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 },
-        { from: 6, to: 8, type: 2 },
-        { from: 8, to: 0, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 2 }, { from: 4, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 7, to: 1, type: 1 }
       ]
     }
   },
@@ -113,24 +95,17 @@ const NUCLEIC_ACIDS = [
     smiles: "O=c1cc[nH]c(=O)[nH]1",
     structure: {
       atoms: [
-        { x: 30, y: 70, label: "NH", type: "N" },  // 0
-        { x: 30, y: 45, label: "", type: "C" },    // 1
-        { x: 15, y: 35, label: "O", type: "O" },   // 2
-        { x: 45, y: 35, label: "NH", type: "N" },  // 3
-        { x: 65, y: 45, label: "", type: "C" },    // 4
-        { x: 80, y: 35, label: "O", type: "O" },   // 5
-        { x: 65, y: 70, label: "", type: "C" },    // 6
-        { x: 45, y: 80, label: "", type: "C" }     // 7
+        { x: 17.0, y: 64.3, label: "O", type: "O" },
+        { x: 33.5, y: 54.8, label: "", type: "C" },
+        { x: 33.5, y: 35.7, label: "", type: "C" },
+        { x: 50.0, y: 26.2, label: "", type: "C" },
+        { x: 66.5, y: 35.7, label: "NH", type: "N" },
+        { x: 66.5, y: 54.8, label: "", type: "C" },
+        { x: 83.0, y: 64.3, label: "O", type: "O" },
+        { x: 50.0, y: 64.3, label: "NH", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 1, to: 2, type: 2 },
-        { from: 1, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 },
-        { from: 4, to: 5, type: 2 },
-        { from: 4, to: 6, type: 1 },
-        { from: 6, to: 7, type: 2 },
-        { from: 7, to: 0, type: 1 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 2 }, { from: 5, to: 7, type: 1 }, { from: 7, to: 1, type: 1 }
       ]
     }
   },
@@ -153,24 +128,17 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ccn([H])c(=O)n1",
     structure: {
       atoms: [
-        { x: 30, y: 70, label: "NH", type: "N" },  // 0
-        { x: 30, y: 45, label: "", type: "C" },    // 1
-        { x: 15, y: 35, label: "O", type: "O" },   // 2
-        { x: 45, y: 35, label: "N", type: "N" },   // 3
-        { x: 65, y: 45, label: "", type: "C" },    // 4
-        { x: 80, y: 35, label: "NH₂", type: "N" }, // 5
-        { x: 65, y: 70, label: "", type: "C" },    // 6
-        { x: 45, y: 80, label: "", type: "C" }     // 7
+        { x: 17.0, y: 64.3, label: "NH₂", type: "N" },
+        { x: 33.5, y: 54.8, label: "", type: "C" },
+        { x: 33.5, y: 35.7, label: "", type: "C" },
+        { x: 50.0, y: 26.2, label: "", type: "C" },
+        { x: 66.5, y: 35.7, label: "NH", type: "N" },
+        { x: 66.5, y: 54.8, label: "", type: "C" },
+        { x: 83.0, y: 64.3, label: "O", type: "O" },
+        { x: 50.0, y: 64.3, label: "N", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 1, to: 2, type: 2 },
-        { from: 1, to: 3, type: 1 },
-        { from: 3, to: 4, type: 2 },
-        { from: 4, to: 5, type: 1 },
-        { from: 4, to: 6, type: 1 },
-        { from: 6, to: 7, type: 2 },
-        { from: 7, to: 0, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 2 }, { from: 5, to: 7, type: 1 }, { from: 7, to: 1, type: 2 }
       ]
     }
   },
@@ -193,31 +161,20 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1nc2[nH]cnc2c(=O)[nH]1",
     structure: {
       atoms: [
-        { x: 25, y: 55, label: "NH", type: "N" },  // 0
-        { x: 25, y: 35, label: "", type: "C" },    // 1
-        { x: 10, y: 25, label: "NH₂", type: "N" }, // 2
-        { x: 40, y: 25, label: "N", type: "N" },   // 3
-        { x: 55, y: 35, label: "", type: "C" },    // 4
-        { x: 55, y: 55, label: "", type: "C" },    // 5
-        { x: 40, y: 65, label: "", type: "C" },    // 6
-        { x: 40, y: 85, label: "O", type: "O" },   // 7
-        { x: 70, y: 65, label: "N", type: "N" },   // 8
-        { x: 78, y: 45, label: "", type: "C" },    // 9
-        { x: 70, y: 28, label: "NH", type: "N" }   // 10
+        { x: 83.0, y: 60.3, label: "NH₂", type: "N" },
+        { x: 69.4, y: 55.3, label: "", type: "C" },
+        { x: 58.3, y: 64.6, label: "N", type: "N" },
+        { x: 44.7, y: 59.6, label: "", type: "C" },
+        { x: 31.9, y: 66.4, label: "NH", type: "N" },
+        { x: 21.5, y: 56.3, label: "", type: "C" },
+        { x: 27.9, y: 43.3, label: "N", type: "N" },
+        { x: 42.2, y: 45.3, label: "", type: "C" },
+        { x: 53.3, y: 36.1, label: "", type: "C" },
+        { x: 50.9, y: 21.8, label: "O", type: "O" },
+        { x: 66.9, y: 41.0, label: "NH", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 1, to: 2, type: 1 },
-        { from: 1, to: 3, type: 2 },
-        { from: 3, to: 4, type: 1 },
-        { from: 4, to: 5, type: 2 },
-        { from: 5, to: 6, type: 1 },
-        { from: 6, to: 7, type: 2 },
-        { from: 6, to: 0, type: 1 },
-        { from: 5, to: 8, type: 1 },
-        { from: 8, to: 9, type: 2 },
-        { from: 9, to: 10, type: 1 },
-        { from: 10, to: 4, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 2 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 2 }, { from: 8, to: 10, type: 1 }, { from: 10, to: 1, type: 1 }, { from: 7, to: 3, type: 2 }
       ]
     }
   },
@@ -242,26 +199,19 @@ const NUCLEIC_ACIDS = [
     smiles: "OC[C@H]1O[C@H](O)[C@H](O)[C@@H]1O",
     structure: {
       atoms: [
-        { x: 65, y: 40, label: "", type: "C" },    // 0 C1'
-        { x: 82, y: 32, label: "OH", type: "O" },  // 1
-        { x: 55, y: 70, label: "", type: "C" },    // 2 C2'
-        { x: 65, y: 88, label: "OH", type: "O" },  // 3
-        { x: 30, y: 70, label: "", type: "C" },    // 4 C3'
-        { x: 20, y: 88, label: "OH", type: "O" },  // 5
-        { x: 20, y: 40, label: "", type: "C" },    // 6 C4'
-        { x: 42, y: 25, label: "O", type: "O" },   // 7 O4'
-        { x: 10, y: 20, label: "HOCH₂", type: "C" } // 8 C5'
+        { x: 83.0, y: 41.3, label: "OH", type: "O" },
+        { x: 74.0, y: 52.5, label: "", type: "C" },
+        { x: 59.8, y: 50.2, label: "", type: "C" },
+        { x: 53.2, y: 37.4, label: "O", type: "O" },
+        { x: 39.0, y: 39.7, label: "", type: "C" },
+        { x: 28.9, y: 29.5, label: "OH", type: "O" },
+        { x: 36.8, y: 53.9, label: "", type: "C" },
+        { x: 24.0, y: 60.4, label: "OH", type: "O" },
+        { x: 49.6, y: 60.4, label: "", type: "C" },
+        { x: 51.8, y: 74.6, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 0, to: 2, type: 1 },
-        { from: 2, to: 3, type: 1 },
-        { from: 2, to: 4, type: 1 },
-        { from: 4, to: 5, type: 1 },
-        { from: 4, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 },
-        { from: 7, to: 0, type: 1 },
-        { from: 6, to: 8, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 4, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 6, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 8, to: 2, type: 1 }
       ]
     }
   },
@@ -284,24 +234,18 @@ const NUCLEIC_ACIDS = [
     smiles: "OC[C@H]1O[C@H](O)C[C@@H]1O",
     structure: {
       atoms: [
-        { x: 65, y: 40, label: "", type: "C" },    // 0 C1'
-        { x: 82, y: 32, label: "OH", type: "O" },  // 1
-        { x: 55, y: 70, label: "", type: "C" },    // 2 C2' (no OH)
-        { x: 30, y: 70, label: "", type: "C" },    // 3 C3'
-        { x: 20, y: 88, label: "OH", type: "O" },  // 4
-        { x: 20, y: 40, label: "", type: "C" },    // 5 C4'
-        { x: 42, y: 25, label: "O", type: "O" },   // 6 O4'
-        { x: 10, y: 20, label: "HOCH₂", type: "C" } // 7 C5'
+        { x: 18.9, y: 68.1, label: "OH", type: "O" },
+        { x: 25.4, y: 52.7, label: "", type: "C" },
+        { x: 41.9, y: 50.6, label: "", type: "C" },
+        { x: 53.3, y: 62.8, label: "O", type: "O" },
+        { x: 68.4, y: 55.8, label: "", type: "C" },
+        { x: 83.0, y: 63.8, label: "OH", type: "O" },
+        { x: 66.3, y: 39.2, label: "", type: "C" },
+        { x: 50.0, y: 36.0, label: "", type: "C" },
+        { x: 42.9, y: 20.9, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 },
-        { from: 0, to: 2, type: 1 },
-        { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 },
-        { from: 3, to: 5, type: 1 },
-        { from: 5, to: 6, type: 1 },
-        { from: 6, to: 0, type: 1 },
-        { from: 5, to: 7, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 4, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 7, to: 2, type: 1 }
       ]
     }
   },
@@ -326,33 +270,28 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ncnc2n(cnc12)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        // Ribose
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Adenine)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N9
-        { x: 72, y: 80, label: "", type: "C" },    // 7 C8
-        { x: 82, y: 70, label: "N", type: "N" },   // 8 N7
-        { x: 78, y: 52, label: "", type: "C" },    // 9 C5
-        { x: 65, y: 52, label: "", type: "C" },    // 10 C4
-        { x: 85, y: 38, label: "", type: "C" },    // 11 C6
-        { x: 85, y: 22, label: "NH₂", type: "N" }, // 12 N6
-        { x: 72, y: 30, label: "N", type: "N" },   // 13 N1
-        { x: 60, y: 38, label: "", type: "C" },    // 14 C2
-        { x: 55, y: 52, label: "N", type: "N" }    // 15 N3
+        { x: 17.0, y: 53.6, label: "NH₂", type: "N" },
+        { x: 24.7, y: 48.9, label: "", type: "C" },
+        { x: 24.4, y: 39.9, label: "N", type: "N" },
+        { x: 32.1, y: 35.2, label: "", type: "C" },
+        { x: 40.0, y: 39.5, label: "N", type: "N" },
+        { x: 40.2, y: 48.4, label: "", type: "C" },
+        { x: 47.1, y: 54.3, label: "N", type: "N" },
+        { x: 43.6, y: 62.6, label: "", type: "C" },
+        { x: 34.7, y: 61.9, label: "N", type: "N" },
+        { x: 32.6, y: 53.2, label: "", type: "C" },
+        { x: 55.8, y: 52.2, label: "", type: "C" },
+        { x: 59.2, y: 43.9, label: "O", type: "O" },
+        { x: 68.2, y: 44.6, label: "", type: "C" },
+        { x: 74.0, y: 37.7, label: "", type: "C" },
+        { x: 82.9, y: 39.3, label: "OH", type: "O" },
+        { x: 70.3, y: 53.3, label: "", type: "C" },
+        { x: 78.6, y: 56.7, label: "OH", type: "O" },
+        { x: 62.7, y: 58.0, label: "", type: "C" },
+        { x: 62.0, y: 67.0, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 }, // Glycosidic
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 },
-        { from: 9, to: 10, type: 2 }, { from: 10, to: 6, type: 1 }, { from: 9, to: 11, type: 1 },
-        { from: 11, to: 12, type: 1 }, { from: 11, to: 13, type: 2 }, { from: 13, to: 14, type: 1 },
-        { from: 14, to: 15, type: 2 }, { from: 15, to: 10, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 2 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 }, { from: 6, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 12, to: 15, type: 1 }, { from: 15, to: 16, type: 1 }, { from: 15, to: 17, type: 1 }, { from: 17, to: 18, type: 1 }, { from: 9, to: 1, type: 2 }, { from: 9, to: 5, type: 1 }, { from: 17, to: 10, type: 1 }
       ]
     }
   },
@@ -375,30 +314,26 @@ const NUCLEIC_ACIDS = [
     smiles: "Cc1cn([C@@H]2O[C@H](CO)[C@@H](O)C2)c(=O)[nH]c1=O",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 1 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 2 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 3 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 4 C5'
-        // Base (Thymine)
-        { x: 60, y: 70, label: "N", type: "N" },   // 5 N1
-        { x: 72, y: 75, label: "", type: "C" },    // 6 C2
-        { x: 72, y: 90, label: "O", type: "O" },   // 7 O2
-        { x: 82, y: 65, label: "NH", type: "N" },  // 8 N3
-        { x: 82, y: 48, label: "", type: "C" },    // 9 C4
-        { x: 92, y: 40, label: "O", type: "O" },   // 10 O4
-        { x: 70, y: 42, label: "", type: "C" },    // 11 C5
-        { x: 70, y: 25, label: "CH₃", type: "C" }, // 12 C5M
-        { x: 60, y: 52, label: "", type: "C" }     // 13 C6
+        { x: 72.8, y: 64.7, label: "CH₃", type: "C" },
+        { x: 68.3, y: 57.1, label: "", type: "C" },
+        { x: 59.4, y: 57.2, label: "", type: "C" },
+        { x: 54.8, y: 49.6, label: "N", type: "N" },
+        { x: 45.9, y: 49.7, label: "", type: "C" },
+        { x: 40.8, y: 57.0, label: "O", type: "O" },
+        { x: 32.3, y: 54.4, label: "", type: "C" },
+        { x: 25.2, y: 59.7, label: "", type: "C" },
+        { x: 17.0, y: 56.2, label: "OH", type: "O" },
+        { x: 32.2, y: 45.5, label: "", type: "C" },
+        { x: 24.9, y: 40.3, label: "OH", type: "O" },
+        { x: 40.6, y: 42.6, label: "", type: "C" },
+        { x: 59.1, y: 41.8, label: "", type: "C" },
+        { x: 54.6, y: 34.2, label: "O", type: "O" },
+        { x: 68.0, y: 41.7, label: "NH", type: "N" },
+        { x: 72.6, y: 49.3, label: "", type: "C" },
+        { x: 81.5, y: 49.2, label: "O", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 3, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 2, to: 0, type: 1 },
-        { from: 2, to: 1, type: 1 }, { from: 2, to: 4, type: 1 },
-        { from: 0, to: 5, type: 1 }, // Glycosidic
-        { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 2 }, { from: 6, to: 8, type: 1 },
-        { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 2 }, { from: 9, to: 11, type: 1 },
-        { from: 11, to: 12, type: 1 }, { from: 11, to: 13, type: 2 }, { from: 13, to: 5, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 9, to: 11, type: 1 }, { from: 3, to: 12, type: 1 }, { from: 12, to: 13, type: 2 }, { from: 12, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 15, to: 16, type: 2 }, { from: 15, to: 1, type: 1 }, { from: 11, to: 4, type: 1 }
       ]
     }
   },
@@ -421,30 +356,26 @@ const NUCLEIC_ACIDS = [
     smiles: "O=c1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)[nH]1",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Uracil)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N1
-        { x: 72, y: 75, label: "", type: "C" },    // 7 C2
-        { x: 72, y: 90, label: "O", type: "O" },   // 8 O2
-        { x: 82, y: 65, label: "NH", type: "N" },  // 9 N3
-        { x: 82, y: 48, label: "", type: "C" },    // 10 C4
-        { x: 92, y: 40, label: "O", type: "O" },   // 11 O4
-        { x: 70, y: 42, label: "", type: "C" },    // 12 C5
-        { x: 60, y: 52, label: "", type: "C" }     // 13 C6
+        { x: 83.0, y: 53.0, label: "O", type: "O" },
+        { x: 74.1, y: 52.6, label: "", type: "C" },
+        { x: 69.4, y: 60.1, label: "", type: "C" },
+        { x: 60.5, y: 59.7, label: "", type: "C" },
+        { x: 56.4, y: 51.8, label: "N", type: "N" },
+        { x: 47.6, y: 51.4, label: "", type: "C" },
+        { x: 42.0, y: 58.3, label: "O", type: "O" },
+        { x: 33.7, y: 55.1, label: "", type: "C" },
+        { x: 26.3, y: 60.0, label: "", type: "C" },
+        { x: 18.4, y: 56.0, label: "OH", type: "O" },
+        { x: 34.2, y: 46.3, label: "", type: "C" },
+        { x: 27.3, y: 40.7, label: "OH", type: "O" },
+        { x: 42.7, y: 43.9, label: "", type: "C" },
+        { x: 45.9, y: 35.6, label: "OH", type: "O" },
+        { x: 61.2, y: 44.3, label: "", type: "C" },
+        { x: 57.2, y: 36.4, label: "O", type: "O" },
+        { x: 70.1, y: 44.7, label: "NH", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 }, // Glycosidic
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 7, to: 9, type: 1 },
-        { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 }, { from: 10, to: 12, type: 1 },
-        { from: 12, to: 13, type: 2 }, { from: 13, to: 6, type: 1 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 7, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 10, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 4, to: 14, type: 1 }, { from: 14, to: 15, type: 2 }, { from: 14, to: 16, type: 1 }, { from: 16, to: 1, type: 1 }, { from: 12, to: 5, type: 1 }
       ]
     }
   },
@@ -467,30 +398,26 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c(=O)n1",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Cytosine)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N1
-        { x: 72, y: 75, label: "", type: "C" },    // 7 C2
-        { x: 72, y: 90, label: "O", type: "O" },   // 8 O2
-        { x: 82, y: 65, label: "N", type: "N" },   // 9 N3
-        { x: 82, y: 48, label: "", type: "C" },    // 10 C4
-        { x: 92, y: 40, label: "NH₂", type: "N" }, // 11 N4
-        { x: 70, y: 42, label: "", type: "C" },    // 12 C5
-        { x: 60, y: 52, label: "", type: "C" }     // 13 C6
+        { x: 83.0, y: 53.0, label: "NH₂", type: "N" },
+        { x: 74.1, y: 52.6, label: "", type: "C" },
+        { x: 69.4, y: 60.1, label: "", type: "C" },
+        { x: 60.5, y: 59.7, label: "", type: "C" },
+        { x: 56.4, y: 51.8, label: "N", type: "N" },
+        { x: 47.6, y: 51.4, label: "", type: "C" },
+        { x: 42.0, y: 58.3, label: "O", type: "O" },
+        { x: 33.7, y: 55.1, label: "", type: "C" },
+        { x: 26.3, y: 60.0, label: "", type: "C" },
+        { x: 18.4, y: 56.0, label: "OH", type: "O" },
+        { x: 34.2, y: 46.3, label: "", type: "C" },
+        { x: 27.3, y: 40.7, label: "OH", type: "O" },
+        { x: 42.7, y: 43.9, label: "", type: "C" },
+        { x: 45.9, y: 35.6, label: "OH", type: "O" },
+        { x: 61.2, y: 44.3, label: "", type: "C" },
+        { x: 57.2, y: 36.4, label: "O", type: "O" },
+        { x: 70.1, y: 44.7, label: "N", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 7, to: 9, type: 1 },
-        { from: 9, to: 10, type: 2 }, { from: 10, to: 11, type: 1 }, { from: 10, to: 12, type: 1 },
-        { from: 12, to: 13, type: 2 }, { from: 13, to: 6, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 7, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 10, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 4, to: 14, type: 1 }, { from: 14, to: 15, type: 2 }, { from: 14, to: 16, type: 1 }, { from: 16, to: 1, type: 2 }, { from: 12, to: 5, type: 1 }
       ]
     }
   },
@@ -513,34 +440,29 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1nc2n(cnc2c(=O)[nH]1)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Guanine)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N9
-        { x: 72, y: 80, label: "", type: "C" },    // 7 C8
-        { x: 82, y: 70, label: "N", type: "N" },   // 8 N7
-        { x: 78, y: 52, label: "", type: "C" },    // 9 C5
-        { x: 65, y: 52, label: "", type: "C" },    // 10 C4
-        { x: 85, y: 38, label: "", type: "C" },    // 11 C6
-        { x: 85, y: 22, label: "O", type: "O" },   // 12 O6
-        { x: 72, y: 30, label: "NH", type: "N" },  // 13 N1
-        { x: 60, y: 38, label: "", type: "C" },    // 14 C2
-        { x: 48, y: 30, label: "NH₂", type: "N" }, // 15 N2
-        { x: 55, y: 52, label: "N", type: "N" }    // 16 N3
+        { x: 31.1, y: 28.7, label: "NH₂", type: "N" },
+        { x: 32.0, y: 37.7, label: "", type: "C" },
+        { x: 40.2, y: 41.4, label: "N", type: "N" },
+        { x: 41.1, y: 50.3, label: "", type: "C" },
+        { x: 48.4, y: 55.6, label: "N", type: "N" },
+        { x: 45.6, y: 64.2, label: "", type: "C" },
+        { x: 36.6, y: 64.2, label: "N", type: "N" },
+        { x: 33.8, y: 55.6, label: "", type: "C" },
+        { x: 25.6, y: 51.9, label: "", type: "C" },
+        { x: 18.3, y: 57.2, label: "O", type: "O" },
+        { x: 24.7, y: 43.0, label: "NH", type: "N" },
+        { x: 57.0, y: 52.8, label: "", type: "C" },
+        { x: 59.8, y: 44.3, label: "O", type: "O" },
+        { x: 68.8, y: 44.3, label: "", type: "C" },
+        { x: 74.1, y: 37.0, label: "", type: "C" },
+        { x: 83.0, y: 38.0, label: "OH", type: "O" },
+        { x: 71.5, y: 52.9, label: "", type: "C" },
+        { x: 80.1, y: 55.7, label: "OH", type: "O" },
+        { x: 64.2, y: 58.1, label: "", type: "C" },
+        { x: 64.2, y: 67.1, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 },
-        { from: 9, to: 10, type: 2 }, { from: 10, to: 6, type: 1 }, { from: 9, to: 11, type: 1 },
-        { from: 11, to: 12, type: 2 }, { from: 11, to: 13, type: 1 }, { from: 13, to: 14, type: 1 },
-        { from: 14, to: 15, type: 1 }, { from: 14, to: 16, type: 2 }, { from: 16, to: 10, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 2 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 2 }, { from: 8, to: 10, type: 1 }, { from: 4, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 13, to: 16, type: 1 }, { from: 16, to: 17, type: 1 }, { from: 16, to: 18, type: 1 }, { from: 18, to: 19, type: 1 }, { from: 10, to: 1, type: 1 }, { from: 7, to: 3, type: 2 }, { from: 18, to: 11, type: 1 }
       ]
     }
   },
@@ -565,27 +487,32 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ncnc2n(cnc12)[C@@H]3O[C@H](COP(=O)(O)O)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        { x: 10, y: 50, label: "P", type: "P" },    // 0 Phosphate
-        { x: 10, y: 30, label: "O", type: "O" },   // 1 =O
-        { x: 25, y: 50, label: "O", type: "O" },   // 2 bridge O
-        { x: 38, y: 50, label: "", type: "C" },    // 3 C5'
-        { x: 50, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 62, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 72, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 62, y: 80, label: "OH", type: "O" },  // 7 C2'
-        { x: 48, y: 78, label: "OH", type: "O" },  // 8 C3'
-        // Base Ade
-        { x: 84, y: 65, label: "N", type: "N" },   // 9 N9
-        { x: 92, y: 52, label: "", type: "C" },    // 10 C8
-        { x: 86, y: 38, label: "N", type: "N" },   // 11 N7
-        { x: 74, y: 45, label: "", type: "C" }     // 12 C5
+        { x: 17.8, y: 47.9, label: "NH₂", type: "N" },
+        { x: 24.6, y: 45.7, label: "", type: "C" },
+        { x: 26.1, y: 38.7, label: "N", type: "N" },
+        { x: 32.9, y: 36.5, label: "", type: "C" },
+        { x: 38.2, y: 41.2, label: "N", type: "N" },
+        { x: 36.7, y: 48.3, label: "", type: "C" },
+        { x: 40.9, y: 54.0, label: "N", type: "N" },
+        { x: 36.7, y: 59.8, label: "", type: "C" },
+        { x: 29.9, y: 57.6, label: "N", type: "N" },
+        { x: 29.9, y: 50.5, label: "", type: "C" },
+        { x: 48.1, y: 54.0, label: "", type: "C" },
+        { x: 52.3, y: 48.3, label: "O", type: "O" },
+        { x: 59.1, y: 50.5, label: "", type: "C" },
+        { x: 64.9, y: 46.3, label: "", type: "C" },
+        { x: 71.4, y: 49.2, label: "O", type: "O" },
+        { x: 77.2, y: 45.0, label: "P", type: "P" },
+        { x: 81.4, y: 50.8, label: "O", type: "O" },
+        { x: 73.0, y: 39.2, label: "OH", type: "O" },
+        { x: 83.0, y: 40.8, label: "OH", type: "O" },
+        { x: 59.1, y: 57.6, label: "", type: "C" },
+        { x: 64.9, y: 61.8, label: "OH", type: "O" },
+        { x: 52.3, y: 59.8, label: "", type: "C" },
+        { x: 50.0, y: 66.7, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 }, { from: 0, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 4, to: 8, type: 1 },
-        { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 },
-        { from: 11, to: 12, type: 1 }, { from: 12, to: 9, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 2 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 }, { from: 6, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 15, to: 16, type: 2 }, { from: 15, to: 17, type: 1 }, { from: 15, to: 18, type: 1 }, { from: 12, to: 19, type: 1 }, { from: 19, to: 20, type: 1 }, { from: 19, to: 21, type: 1 }, { from: 21, to: 22, type: 1 }, { from: 9, to: 1, type: 2 }, { from: 9, to: 5, type: 1 }, { from: 21, to: 10, type: 1 }
       ]
     }
   },
@@ -608,27 +535,30 @@ const NUCLEIC_ACIDS = [
     smiles: "Cc1cn([C@@H]2O[C@H](COP(=O)(O)O)[C@@H](O)C2)c(=O)[nH]c1=O",
     structure: {
       atoms: [
-        { x: 10, y: 50, label: "P", type: "P" },    // 0 Phosphate
-        { x: 10, y: 30, label: "O", type: "O" },   // 1
-        { x: 25, y: 50, label: "O", type: "O" },   // 2
-        { x: 38, y: 50, label: "", type: "C" },    // 3 C5'
-        { x: 50, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 62, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 72, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 48, y: 78, label: "OH", type: "O" },  // 7 C3'
-        // Base Thy
-        { x: 84, y: 65, label: "N", type: "N" },   // 8 N1
-        { x: 92, y: 55, label: "", type: "C" },    // 9 C2
-        { x: 92, y: 40, label: "NH", type: "N" },  // 10 N3
-        { x: 82, y: 32, label: "", type: "C" },    // 11 C4
-        { x: 72, y: 40, label: "", type: "C" }     // 12 C5
+        { x: 72.8, y: 63.7, label: "CH₃", type: "C" },
+        { x: 70.2, y: 57.1, label: "", type: "C" },
+        { x: 63.1, y: 56.0, label: "", type: "C" },
+        { x: 60.5, y: 49.4, label: "N", type: "N" },
+        { x: 53.4, y: 48.3, label: "", type: "C" },
+        { x: 48.4, y: 53.4, label: "O", type: "O" },
+        { x: 42.0, y: 50.2, label: "", type: "C" },
+        { x: 35.7, y: 53.6, label: "", type: "C" },
+        { x: 29.7, y: 49.7, label: "O", type: "O" },
+        { x: 23.3, y: 53.0, label: "P", type: "P" },
+        { x: 20.0, y: 46.7, label: "O", type: "O" },
+        { x: 26.6, y: 59.4, label: "OH", type: "O" },
+        { x: 17.0, y: 56.3, label: "OH", type: "O" },
+        { x: 43.1, y: 43.2, label: "", type: "C" },
+        { x: 38.0, y: 38.2, label: "OH", type: "O" },
+        { x: 50.1, y: 42.0, label: "", type: "C" },
+        { x: 65.0, y: 43.8, label: "", type: "C" },
+        { x: 62.3, y: 37.1, label: "O", type: "O" },
+        { x: 72.0, y: 44.8, label: "NH", type: "N" },
+        { x: 74.7, y: 51.5, label: "", type: "C" },
+        { x: 81.7, y: 52.5, label: "O", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 }, { from: 0, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 4, to: 7, type: 1 },
-        { from: 6, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 1 },
-        { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 8, type: 2 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 2 }, { from: 9, to: 11, type: 1 }, { from: 9, to: 12, type: 1 }, { from: 6, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 13, to: 15, type: 1 }, { from: 3, to: 16, type: 1 }, { from: 16, to: 17, type: 2 }, { from: 16, to: 18, type: 1 }, { from: 18, to: 19, type: 1 }, { from: 19, to: 20, type: 2 }, { from: 19, to: 1, type: 1 }, { from: 15, to: 4, type: 1 }
       ]
     }
   },
@@ -651,27 +581,30 @@ const NUCLEIC_ACIDS = [
     smiles: "O=c1ccn([C@@H]2O[C@H](COP(=O)(O)O)[C@@H](O)[C@H]2O)c(=O)[nH]1",
     structure: {
       atoms: [
-        { x: 10, y: 50, label: "P", type: "P" },    // 0
-        { x: 10, y: 30, label: "O", type: "O" },   // 1
-        { x: 25, y: 50, label: "O", type: "O" },   // 2
-        { x: 38, y: 50, label: "", type: "C" },    // 3 C5'
-        { x: 50, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 62, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 72, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 62, y: 80, label: "OH", type: "O" },  // 7 C2'
-        { x: 48, y: 78, label: "OH", type: "O" },  // 8 C3'
-        // Base Ura
-        { x: 84, y: 65, label: "N", type: "N" },   // 9 N1
-        { x: 92, y: 55, label: "", type: "C" },    // 10 C2
-        { x: 92, y: 40, label: "NH", type: "N" },  // 11 N3
-        { x: 82, y: 32, label: "", type: "C" }     // 12 C4
+        { x: 82.9, y: 55.9, label: "O", type: "O" },
+        { x: 75.8, y: 54.4, label: "", type: "C" },
+        { x: 70.9, y: 59.8, label: "", type: "C" },
+        { x: 63.8, y: 58.3, label: "", type: "C" },
+        { x: 61.6, y: 51.4, label: "N", type: "N" },
+        { x: 54.5, y: 49.9, label: "", type: "C" },
+        { x: 49.1, y: 54.8, label: "O", type: "O" },
+        { x: 42.8, y: 51.2, label: "", type: "C" },
+        { x: 36.1, y: 54.1, label: "", type: "C" },
+        { x: 30.3, y: 49.9, label: "O", type: "O" },
+        { x: 23.6, y: 52.9, label: "P", type: "P" },
+        { x: 20.7, y: 46.2, label: "O", type: "O" },
+        { x: 26.6, y: 59.5, label: "OH", type: "O" },
+        { x: 17.0, y: 55.8, label: "OH", type: "O" },
+        { x: 44.3, y: 44.1, label: "", type: "C" },
+        { x: 39.4, y: 38.7, label: "OH", type: "O" },
+        { x: 51.5, y: 43.3, label: "", type: "C" },
+        { x: 55.1, y: 37.0, label: "OH", type: "O" },
+        { x: 66.4, y: 46.0, label: "", type: "C" },
+        { x: 64.2, y: 39.1, label: "O", type: "O" },
+        { x: 73.5, y: 47.5, label: "NH", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 }, { from: 0, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 4, to: 8, type: 1 },
-        { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 1 },
-        { from: 11, to: 12, type: 1 }, { from: 12, to: 9, type: 2 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 }, { from: 10, to: 12, type: 1 }, { from: 10, to: 13, type: 1 }, { from: 7, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 14, to: 16, type: 1 }, { from: 16, to: 17, type: 1 }, { from: 4, to: 18, type: 1 }, { from: 18, to: 19, type: 2 }, { from: 18, to: 20, type: 1 }, { from: 20, to: 1, type: 1 }, { from: 16, to: 5, type: 1 }
       ]
     }
   },
@@ -694,27 +627,30 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ccn([C@@H]2O[C@H](COP(=O)(O)O)[C@@H](O)[C@H]2O)c(=O)n1",
     structure: {
       atoms: [
-        { x: 10, y: 50, label: "P", type: "P" },    // 0
-        { x: 10, y: 30, label: "O", type: "O" },   // 1
-        { x: 25, y: 50, label: "O", type: "O" },   // 2
-        { x: 38, y: 50, label: "", type: "C" },    // 3 C5'
-        { x: 50, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 62, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 72, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 62, y: 80, label: "OH", type: "O" },  // 7 C2'
-        { x: 48, y: 78, label: "OH", type: "O" },  // 8 C3'
-        // Base Cyt
-        { x: 84, y: 65, label: "N", type: "N" },   // 9 N1
-        { x: 92, y: 55, label: "", type: "C" },    // 10 C2
-        { x: 92, y: 40, label: "N", type: "N" },   // 11 N3
-        { x: 82, y: 32, label: "", type: "C" }     // 12 C4
+        { x: 82.9, y: 55.9, label: "NH₂", type: "N" },
+        { x: 75.8, y: 54.4, label: "", type: "C" },
+        { x: 70.9, y: 59.8, label: "", type: "C" },
+        { x: 63.8, y: 58.3, label: "", type: "C" },
+        { x: 61.6, y: 51.4, label: "N", type: "N" },
+        { x: 54.5, y: 49.9, label: "", type: "C" },
+        { x: 49.1, y: 54.8, label: "O", type: "O" },
+        { x: 42.8, y: 51.2, label: "", type: "C" },
+        { x: 36.1, y: 54.1, label: "", type: "C" },
+        { x: 30.3, y: 49.9, label: "O", type: "O" },
+        { x: 23.6, y: 52.9, label: "P", type: "P" },
+        { x: 20.7, y: 46.2, label: "O", type: "O" },
+        { x: 26.6, y: 59.5, label: "OH", type: "O" },
+        { x: 17.0, y: 55.8, label: "OH", type: "O" },
+        { x: 44.3, y: 44.1, label: "", type: "C" },
+        { x: 39.4, y: 38.7, label: "OH", type: "O" },
+        { x: 51.5, y: 43.3, label: "", type: "C" },
+        { x: 55.1, y: 37.0, label: "OH", type: "O" },
+        { x: 66.4, y: 46.0, label: "", type: "C" },
+        { x: 64.2, y: 39.1, label: "O", type: "O" },
+        { x: 73.5, y: 47.5, label: "N", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 }, { from: 0, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 4, to: 8, type: 1 },
-        { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 },
-        { from: 11, to: 12, type: 1 }, { from: 12, to: 9, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 }, { from: 10, to: 12, type: 1 }, { from: 10, to: 13, type: 1 }, { from: 7, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 14, to: 16, type: 1 }, { from: 16, to: 17, type: 1 }, { from: 4, to: 18, type: 1 }, { from: 18, to: 19, type: 2 }, { from: 18, to: 20, type: 1 }, { from: 20, to: 1, type: 2 }, { from: 16, to: 5, type: 1 }
       ]
     }
   },
@@ -737,27 +673,33 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1nc2n(cnc2c(=O)[nH]1)[C@@H]3O[C@H](COP(=O)(O)O)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        { x: 10, y: 50, label: "P", type: "P" },    // 0
-        { x: 10, y: 30, label: "O", type: "O" },   // 1
-        { x: 25, y: 50, label: "O", type: "O" },   // 2
-        { x: 38, y: 50, label: "", type: "C" },    // 3 C5'
-        { x: 50, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 62, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 72, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 62, y: 80, label: "OH", type: "O" },  // 7 C2'
-        { x: 48, y: 78, label: "OH", type: "O" },  // 8 C3'
-        // Base Gua
-        { x: 84, y: 65, label: "N", type: "N" },   // 9 N9
-        { x: 92, y: 52, label: "", type: "C" },    // 10 C8
-        { x: 86, y: 38, label: "N", type: "N" },   // 11 N7
-        { x: 74, y: 45, label: "", type: "C" }     // 12 C5
+        { x: 34.2, y: 31.1, label: "NH₂", type: "N" },
+        { x: 33.1, y: 38.2, label: "", type: "C" },
+        { x: 38.6, y: 42.7, label: "N", type: "N" },
+        { x: 37.4, y: 49.7, label: "", type: "C" },
+        { x: 41.8, y: 55.2, label: "N", type: "N" },
+        { x: 37.9, y: 61.2, label: "", type: "C" },
+        { x: 31.1, y: 59.3, label: "N", type: "N" },
+        { x: 30.8, y: 52.2, label: "", type: "C" },
+        { x: 25.3, y: 47.7, label: "", type: "C" },
+        { x: 18.6, y: 50.2, label: "O", type: "O" },
+        { x: 26.4, y: 40.7, label: "NH", type: "N" },
+        { x: 48.9, y: 54.9, label: "", type: "C" },
+        { x: 52.9, y: 49.0, label: "O", type: "O" },
+        { x: 59.7, y: 50.9, label: "", type: "C" },
+        { x: 65.3, y: 46.4, label: "", type: "C" },
+        { x: 71.9, y: 49.0, label: "O", type: "O" },
+        { x: 77.4, y: 44.6, label: "P", type: "P" },
+        { x: 81.9, y: 50.2, label: "O", type: "O" },
+        { x: 73.0, y: 39.1, label: "OH", type: "O" },
+        { x: 83.0, y: 40.2, label: "OH", type: "O" },
+        { x: 60.0, y: 58.0, label: "", type: "C" },
+        { x: 66.0, y: 61.9, label: "OH", type: "O" },
+        { x: 53.4, y: 60.5, label: "", type: "C" },
+        { x: 51.5, y: 67.3, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 2 }, { from: 0, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 4, to: 8, type: 1 },
-        { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 },
-        { from: 11, to: 12, type: 1 }, { from: 12, to: 9, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 2 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 2 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 2 }, { from: 8, to: 10, type: 1 }, { from: 4, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 15, to: 16, type: 1 }, { from: 16, to: 17, type: 2 }, { from: 16, to: 18, type: 1 }, { from: 16, to: 19, type: 1 }, { from: 13, to: 20, type: 1 }, { from: 20, to: 21, type: 1 }, { from: 20, to: 22, type: 1 }, { from: 22, to: 23, type: 1 }, { from: 10, to: 1, type: 1 }, { from: 7, to: 3, type: 2 }, { from: 22, to: 11, type: 1 }
       ]
     }
   },
@@ -780,27 +722,40 @@ const NUCLEIC_ACIDS = [
     smiles: "Nc1ncnc2n(cnc12)[C@@H]3O[C@H](COP(=O)(O)OP(=O)(O)OP(=O)(O)O)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        { x: 5, y: 50, label: "P", type: "P" },     // 0 Pγ
-        { x: 18, y: 50, label: "P", type: "P" },    // 1 Pβ
-        { x: 31, y: 50, label: "P", type: "P" },    // 2 Pα
-        { x: 42, y: 50, label: "O", type: "O" },   // 3 O5'
-        { x: 52, y: 60, label: "", type: "C" },    // 4 C4'
-        { x: 64, y: 52, label: "O", type: "O" },   // 5 O4'
-        { x: 74, y: 65, label: "", type: "C" },    // 6 C1'
-        { x: 64, y: 80, label: "OH", type: "O" },  // 7 C2'
-        { x: 50, y: 78, label: "OH", type: "O" },  // 8 C3'
-        // Base
-        { x: 86, y: 65, label: "N", type: "N" },   // 9 N9
-        { x: 94, y: 52, label: "", type: "C" },    // 10 C8
-        { x: 88, y: 38, label: "N", type: "N" },   // 11 N7
-        { x: 76, y: 45, label: "", type: "C" }     // 12 C5
+        { x: 83.0, y: 58.7, label: "NH₂", type: "N" },
+        { x: 76.8, y: 58.5, label: "", type: "C" },
+        { x: 73.5, y: 63.7, label: "N", type: "N" },
+        { x: 67.4, y: 63.5, label: "", type: "C" },
+        { x: 64.5, y: 58.0, label: "N", type: "N" },
+        { x: 67.8, y: 52.8, label: "", type: "C" },
+        { x: 66.1, y: 46.8, label: "N", type: "N" },
+        { x: 71.2, y: 43.4, label: "", type: "C" },
+        { x: 76.1, y: 47.2, label: "N", type: "N" },
+        { x: 73.9, y: 53.0, label: "", type: "C" },
+        { x: 60.3, y: 44.7, label: "", type: "C" },
+        { x: 55.2, y: 48.1, label: "O", type: "O" },
+        { x: 50.3, y: 44.3, label: "", type: "C" },
+        { x: 44.4, y: 46.0, label: "", type: "C" },
+        { x: 39.9, y: 41.7, label: "O", type: "O" },
+        { x: 34.0, y: 43.4, label: "P", type: "P" },
+        { x: 35.7, y: 49.3, label: "O", type: "O" },
+        { x: 32.3, y: 37.4, label: "OH", type: "O" },
+        { x: 28.1, y: 45.1, label: "O", type: "O" },
+        { x: 26.6, y: 51.1, label: "P", type: "P" },
+        { x: 20.6, y: 49.5, label: "O", type: "O" },
+        { x: 32.5, y: 52.6, label: "OH", type: "O" },
+        { x: 25.0, y: 57.0, label: "O", type: "O" },
+        { x: 29.5, y: 61.3, label: "P", type: "P" },
+        { x: 25.2, y: 65.8, label: "O", type: "O" },
+        { x: 33.8, y: 56.9, label: "OH", type: "O" },
+        { x: 33.9, y: 65.6, label: "OH", type: "O" },
+        { x: 52.4, y: 38.5, label: "", type: "C" },
+        { x: 49.0, y: 33.4, label: "OH", type: "O" },
+        { x: 58.6, y: 38.8, label: "", type: "C" },
+        { x: 62.4, y: 33.9, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 1 },
-        { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 },
-        { from: 6, to: 4, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 4, to: 8, type: 1 },
-        { from: 6, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 },
-        { from: 11, to: 12, type: 1 }, { from: 12, to: 9, type: 1 }
+        { from: 0, to: 1, type: 1 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 2 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 }, { from: 6, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 14, to: 15, type: 1 }, { from: 15, to: 16, type: 2 }, { from: 15, to: 17, type: 1 }, { from: 15, to: 18, type: 1 }, { from: 18, to: 19, type: 1 }, { from: 19, to: 20, type: 2 }, { from: 19, to: 21, type: 1 }, { from: 19, to: 22, type: 1 }, { from: 22, to: 23, type: 1 }, { from: 23, to: 24, type: 2 }, { from: 23, to: 25, type: 1 }, { from: 23, to: 26, type: 1 }, { from: 12, to: 27, type: 1 }, { from: 27, to: 28, type: 1 }, { from: 27, to: 29, type: 1 }, { from: 29, to: 30, type: 1 }, { from: 9, to: 1, type: 2 }, { from: 9, to: 5, type: 1 }, { from: 29, to: 10, type: 1 }
       ]
     }
   },
@@ -825,30 +780,26 @@ const NUCLEIC_ACIDS = [
     smiles: "O=c1[nH]c(=O)c([C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O)c[nH]1",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Uracil connected via C5!)
-        { x: 60, y: 70, label: "", type: "C" },    // 6 C5
-        { x: 72, y: 80, label: "NH", type: "N" },  // 7 N1
-        { x: 84, y: 70, label: "", type: "C" },    // 8 C2
-        { x: 92, y: 80, label: "O", type: "O" },   // 9 O2
-        { x: 88, y: 52, label: "NH", type: "N" },  // 10 N3
-        { x: 76, y: 45, label: "", type: "C" },    // 11 C4
-        { x: 76, y: 30, label: "O", type: "O" },   // 12 O4
-        { x: 62, y: 52, label: "", type: "C" }     // 13 C6
+        { x: 83.0, y: 49.8, label: "O", type: "O" },
+        { x: 74.2, y: 49.7, label: "", type: "C" },
+        { x: 69.7, y: 57.4, label: "NH", type: "N" },
+        { x: 60.9, y: 57.3, label: "", type: "C" },
+        { x: 56.4, y: 65.0, label: "O", type: "O" },
+        { x: 56.5, y: 49.7, label: "", type: "C" },
+        { x: 47.7, y: 49.7, label: "", type: "C" },
+        { x: 42.4, y: 56.8, label: "O", type: "O" },
+        { x: 34.0, y: 54.0, label: "", type: "C" },
+        { x: 26.9, y: 59.2, label: "", type: "C" },
+        { x: 18.8, y: 55.6, label: "OH", type: "O" },
+        { x: 34.1, y: 45.2, label: "", type: "C" },
+        { x: 26.9, y: 40.0, label: "OH", type: "O" },
+        { x: 42.5, y: 42.5, label: "", type: "C" },
+        { x: 45.2, y: 34.1, label: "OH", type: "O" },
+        { x: 60.9, y: 42.0, label: "", type: "C" },
+        { x: 69.8, y: 42.1, label: "NH", type: "N" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 }, // C-C Glycosidic bond
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 2 },
-        { from: 8, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 2 },
-        { from: 11, to: 13, type: 1 }, { from: 13, to: 6, type: 2 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 2 }, { from: 3, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 8, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 11, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 5, to: 15, type: 2 }, { from: 15, to: 16, type: 1 }, { from: 16, to: 1, type: 1 }, { from: 13, to: 6, type: 1 }
       ]
     }
   },
@@ -871,33 +822,28 @@ const NUCLEIC_ACIDS = [
     smiles: "O=c1nc[nH]c2n(cnc12)[C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (Hypoxanthine)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N9
-        { x: 72, y: 80, label: "", type: "C" },    // 7 C8
-        { x: 82, y: 70, label: "N", type: "N" },   // 8 N7
-        { x: 78, y: 52, label: "", type: "C" },    // 9 C5
-        { x: 65, y: 52, label: "", type: "C" },    // 10 C4
-        { x: 85, y: 38, label: "", type: "C" },    // 11 C6
-        { x: 85, y: 22, label: "O", type: "O" },   // 12 O6
-        { x: 72, y: 30, label: "NH", type: "N" },  // 13 N1
-        { x: 60, y: 38, label: "", type: "C" },    // 14 C2
-        { x: 55, y: 52, label: "N", type: "N" }    // 15 N3
+        { x: 17.0, y: 53.6, label: "O", type: "O" },
+        { x: 24.7, y: 48.9, label: "", type: "C" },
+        { x: 24.4, y: 39.9, label: "N", type: "N" },
+        { x: 32.1, y: 35.2, label: "", type: "C" },
+        { x: 40.0, y: 39.5, label: "NH", type: "N" },
+        { x: 40.2, y: 48.4, label: "", type: "C" },
+        { x: 47.1, y: 54.3, label: "N", type: "N" },
+        { x: 43.6, y: 62.6, label: "", type: "C" },
+        { x: 34.7, y: 61.9, label: "N", type: "N" },
+        { x: 32.6, y: 53.2, label: "", type: "C" },
+        { x: 55.8, y: 52.2, label: "", type: "C" },
+        { x: 59.2, y: 43.9, label: "O", type: "O" },
+        { x: 68.2, y: 44.6, label: "", type: "C" },
+        { x: 74.0, y: 37.7, label: "", type: "C" },
+        { x: 82.9, y: 39.3, label: "OH", type: "O" },
+        { x: 70.3, y: 53.3, label: "", type: "C" },
+        { x: 78.6, y: 56.7, label: "OH", type: "O" },
+        { x: 62.7, y: 58.0, label: "", type: "C" },
+        { x: 62.0, y: 67.0, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 },
-        { from: 9, to: 10, type: 2 }, { from: 10, to: 6, type: 1 }, { from: 9, to: 11, type: 1 },
-        { from: 11, to: 12, type: 2 }, { from: 11, to: 13, type: 1 }, { from: 13, to: 14, type: 1 },
-        { from: 14, to: 15, type: 2 }, { from: 15, to: 10, type: 1 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 2 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 8, to: 9, type: 1 }, { from: 6, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 12, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 12, to: 15, type: 1 }, { from: 15, to: 16, type: 1 }, { from: 15, to: 17, type: 1 }, { from: 17, to: 18, type: 1 }, { from: 9, to: 1, type: 1 }, { from: 9, to: 5, type: 2 }, { from: 17, to: 10, type: 1 }
       ]
     }
   },
@@ -920,31 +866,26 @@ const NUCLEIC_ACIDS = [
     smiles: "O=C1NCCN(C1=O)[C@@H]2O[C@H](CO)[C@@H](O)[C@H]2O",
     structure: {
       atoms: [
-        // Sugar
-        { x: 45, y: 70, label: "", type: "C" },    // 0 C1'
-        { x: 35, y: 90, label: "OH", type: "O" },  // 1 C2'
-        { x: 20, y: 80, label: "OH", type: "O" },  // 2 C3'
-        { x: 20, y: 60, label: "", type: "C" },    // 3 C4'
-        { x: 32, y: 52, label: "O", type: "O" },   // 4 O4'
-        { x: 10, y: 50, label: "HOCH₂", type: "C" }, // 5 C5'
-        // Base (5,6-dihydrouracil: single bond between C5 and C6!)
-        { x: 60, y: 70, label: "N", type: "N" },   // 6 N1
-        { x: 72, y: 75, label: "", type: "C" },    // 7 C2
-        { x: 72, y: 90, label: "O", type: "O" },   // 8 O2
-        { x: 82, y: 65, label: "NH", type: "N" },  // 9 N3
-        { x: 82, y: 48, label: "", type: "C" },    // 10 C4
-        { x: 92, y: 40, label: "O", type: "O" },   // 11 O4
-        { x: 70, y: 42, label: "", type: "C" },    // 12 C5 (single bond to C6!)
-        { x: 60, y: 52, label: "", type: "C" }     // 13 C6
+        { x: 22.4, y: 59.4, label: "O", type: "O" },
+        { x: 28.2, y: 52.2, label: "", type: "C" },
+        { x: 24.9, y: 43.6, label: "NH", type: "N" },
+        { x: 30.7, y: 36.4, label: "", type: "C" },
+        { x: 39.8, y: 37.8, label: "", type: "C" },
+        { x: 43.1, y: 46.4, label: "N", type: "N" },
+        { x: 37.3, y: 53.6, label: "", type: "C" },
+        { x: 40.7, y: 62.2, label: "O", type: "O" },
+        { x: 52.3, y: 47.9, label: "", type: "C" },
+        { x: 58.8, y: 41.3, label: "O", type: "O" },
+        { x: 67.0, y: 45.5, label: "", type: "C" },
+        { x: 75.2, y: 41.3, label: "", type: "C" },
+        { x: 83.0, y: 46.3, label: "OH", type: "O" },
+        { x: 65.6, y: 54.6, label: "", type: "C" },
+        { x: 72.1, y: 61.1, label: "OH", type: "O" },
+        { x: 56.5, y: 56.1, label: "", type: "C" },
+        { x: 52.3, y: 64.3, label: "OH", type: "O" }
       ],
       bonds: [
-        { from: 0, to: 4, type: 1 }, { from: 4, to: 3, type: 1 }, { from: 3, to: 0, type: 1 },
-        { from: 0, to: 1, type: 1 }, { from: 3, to: 2, type: 1 }, { from: 3, to: 5, type: 1 },
-        { from: 0, to: 6, type: 1 },
-        { from: 6, to: 7, type: 1 }, { from: 7, to: 8, type: 2 }, { from: 7, to: 9, type: 1 },
-        { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 2 }, { from: 10, to: 12, type: 1 },
-        { from: 12, to: 13, type: 1 }, // Single bond (saturated C5-C6!)
-        { from: 13, to: 6, type: 1 }
+        { from: 0, to: 1, type: 2 }, { from: 1, to: 2, type: 1 }, { from: 2, to: 3, type: 1 }, { from: 3, to: 4, type: 1 }, { from: 4, to: 5, type: 1 }, { from: 5, to: 6, type: 1 }, { from: 6, to: 7, type: 2 }, { from: 5, to: 8, type: 1 }, { from: 8, to: 9, type: 1 }, { from: 9, to: 10, type: 1 }, { from: 10, to: 11, type: 1 }, { from: 11, to: 12, type: 1 }, { from: 10, to: 13, type: 1 }, { from: 13, to: 14, type: 1 }, { from: 13, to: 15, type: 1 }, { from: 15, to: 16, type: 1 }, { from: 6, to: 1, type: 1 }, { from: 15, to: 8, type: 1 }
       ]
     }
   }
