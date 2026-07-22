@@ -487,9 +487,12 @@ function renderGeneratorPreview() {
   const activeQ = isMini ? 2 : 4;
   const activeSymbols = isMini ? NUCLEIC_ACIDS.slice(0, 7) : NUCLEIC_ACIDS;
 
-  const isSquare = document.getElementById("set-card-shape") ? document.getElementById("set-card-shape").value === "square" : false;
-  const pageLayout = document.getElementById("set-page-layout") ? document.getElementById("set-page-layout").value : "6";
-  const rotateEnabled = document.getElementById("set-random-rotation") ? document.getElementById("set-random-rotation").checked : true;
+  const shapeElem = document.getElementById("set-card-shape");
+  const isSquare = shapeElem ? shapeElem.value === "square" : true;
+  const printLayoutElem = document.getElementById("set-print-layout") || document.getElementById("set-page-layout");
+  const pageLayout = printLayoutElem ? printLayoutElem.value : "6";
+  const rotateElem = document.getElementById("set-random-rotation");
+  const rotateEnabled = rotateElem ? rotateElem.checked === true : false;
   const guaranteeDiff = document.getElementById("set-guarantee-diff-reps") ? document.getElementById("set-guarantee-diff-reps").checked : true;
   const showCheat = document.getElementById("set-show-cheat") ? document.getElementById("set-show-cheat").checked : false;
 

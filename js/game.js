@@ -318,8 +318,10 @@ class NADobbleGame {
    * Helper to build HTML string of a single Dobble card.
    */
   buildCardHTML(cardData) {
-    const isSquare = document.getElementById("set-card-shape") ? document.getElementById("set-card-shape").value === "square" : false;
-    const rotateEnabled = document.getElementById("set-random-rotation") ? document.getElementById("set-random-rotation").checked : true;
+    const shapeElem = document.getElementById("set-card-shape");
+    const isSquare = shapeElem ? shapeElem.value === "square" : true;
+    const rotateElem = document.getElementById("set-random-rotation");
+    const rotateEnabled = rotateElem ? rotateElem.checked === true : false;
     const lang = window.currentLang || "cs";
     
     let itemsHTML = "";
