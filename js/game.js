@@ -220,7 +220,7 @@ class NADobbleGame {
     const activeSymbols = isMini ? NUCLEIC_ACIDS.slice(0, 7) : NUCLEIC_ACIDS;
     
     const settingsGuaranteeDiff = document.getElementById("set-guarantee-diff-reps") ? document.getElementById("set-guarantee-diff-reps").checked : true;
-    this.deck = generateDobbleDeck(activeSymbols, activeQ, settingsGuaranteeDiff);
+    this.deck = generateDobbleDeck(activeSymbols, activeQ, settingsGuaranteeDiff, [0, 1, 2, 3, 4, 5]);
     
     // Draw playing UI
     this.container.innerHTML = `

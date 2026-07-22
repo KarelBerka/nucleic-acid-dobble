@@ -158,7 +158,7 @@ function generateDobbleDeck(symbols, q = 4, guaranteeDifferentReps = true, allow
 
   // Default allowed reps: 0..6
   if (!allowedReps || allowedReps.length === 0) {
-    allowedReps = [0, 1, 2, 3, 4, 5, 6];
+    allowedReps = [0, 1, 2, 3, 4, 5];
   }
 
   // For each symbol, find which cards it appears on (exactly k cards)
