@@ -910,7 +910,27 @@ const ATOM_STYLES = {
  * @param {number} bondWidth Thickness of the bond lines
  * @returns {string} The SVG element as HTML string
  */
-function renderStructureToSVG(structure, width = 140, height = 140, bondColor = "#000000", bondWidth = 2.0) {
+/**
+ * Helper to format chemical atom labels (e.g. NH2 -> NH₂, H2N -> H₂N) for SVG rendering.
+ */
+function formatLabelSVG(label) {
+  if (!label) return "";
+  const clean = label.replace(/[\u2080-\u2089]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x2080 + 48));
+  return clean.replace(/(\d+)/g, '<tspan font-size="72%" dy="3.5">$1</tspan><tspan dy="-3.5"></tspan>');
+}
+
+/**
+ * Renders a chemical structure into a Wikipedia-style SVG string.
+ * @param {Object} structure The structure object from NUCLEIC_ACIDS
+ * @param {number|string} width Width of the SVG canvas
+ * @param {number|string} height Height of the SVG canvas
+ * @param {string} bondColor Color of the bond lines
+ * @param {number} bondWidth Thickness of the bond lines
+ * @returns {string} The SVG element as HTML string
+ */
+function renderStructureToSVG(structure, width = "100%", height = "100%", bondColor = "#000000", bondWidth = 2.4) {
+  if (!structure || !structure.atoms) return "";
+
   let minX = Infinity, maxX = -Infinity;
   let minY = Infinity, maxY = -Infinity;
   
@@ -920,9 +940,9 @@ function renderStructureToSVG(structure, width = 140, height = 140, bondColor = 
     const hasVisibleLabel = atom.label && !isAliphaticCarbon;
     
     // Calculate padding dynamically to avoid unnecessary empty margin
-    const labelWidth = atom.label ? atom.label.length * 7 : 0;
-    const paddingX = hasVisibleLabel ? Math.max(labelWidth / 2 + 1, 4) : 2;
-    const paddingY = hasVisibleLabel ? 6 : 2;
+    const labelWidth = atom.label ? atom.label.length * 8 : 0;
+    const paddingX = hasVisibleLabel ? Math.max(labelWidth / 2 + 2, 5) : 3;
+    const paddingY = hasVisibleLabel ? 7 : 3;
     
     if (atom.x - paddingX < minX) minX = atom.x - paddingX;
     if (atom.x + paddingX > maxX) maxX = atom.x + paddingX;
@@ -930,10 +950,10 @@ function renderStructureToSVG(structure, width = 140, height = 140, bondColor = 
     if (atom.y + paddingY > maxY) maxY = atom.y + paddingY;
   });
 
-  const contentW = maxX - minX;
-  const contentH = maxY - minY;
+  const contentW = maxX - minX || 1;
+  const contentH = maxY - minY || 1;
   
-  const margin = 3; // Tight margin to enlarge the molecule
+  const margin = 4; // Tight margin to enlarge the molecule
   const paddedW = contentW + 2 * margin;
   const paddedH = contentH + 2 * margin;
   
@@ -944,21 +964,22 @@ function renderStructureToSVG(structure, width = 140, height = 140, bondColor = 
 
   let svgContent = "";
   
-  // Draw bonds first
+  // Draw bonds first (Wikipedia high-contrast line art)
   structure.bonds.forEach(bond => {
     const fromAtom = structure.atoms[bond.from];
     const toAtom = structure.atoms[bond.to];
+    if (!fromAtom || !toAtom) return;
     
     if (bond.type === 2) {
       const dx = toAtom.x - fromAtom.x;
       const dy = toAtom.y - fromAtom.y;
       const len = Math.sqrt(dx * dx + dy * dy) || 1;
-      const px = -dy / len * 2;
-      const py = dx / len * 2;
+      const px = -dy / len * 1.8;
+      const py = dx / len * 1.8;
       
       svgContent += `
-        <line x1="${fromAtom.x - px}" y1="${fromAtom.y - py}" x2="${toAtom.x - px}" y2="${toAtom.y - py}" stroke="${bondColor}" stroke-width="${bondWidth}" stroke-linecap="round"/>
-        <line x1="${fromAtom.x + px}" y1="${fromAtom.y + py}" x2="${toAtom.x + px}" y2="${toAtom.y + py}" stroke="${bondColor}" stroke-width="${bondWidth}" stroke-linecap="round"/>
+        <line x1="${fromAtom.x - px}" y1="${fromAtom.y - py}" x2="${toAtom.x - px}" y2="${toAtom.y - py}" stroke="${bondColor}" stroke-width="${bondWidth * 0.9}" stroke-linecap="round"/>
+        <line x1="${fromAtom.x + px}" y1="${fromAtom.y + py}" x2="${toAtom.x + px}" y2="${toAtom.y + py}" stroke="${bondColor}" stroke-width="${bondWidth * 0.9}" stroke-linecap="round"/>
       `;
     } else {
       svgContent += `
@@ -967,31 +988,33 @@ function renderStructureToSVG(structure, width = 140, height = 140, bondColor = 
     }
   });
 
-  // Draw atom labels
+  // Draw atom labels with Wikipedia color palette & bold typography
   structure.atoms.forEach(atom => {
     const cleanLabel = atom.label ? atom.label.replace(/[\u2080-\u2089]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x2080 + 48)) : "";
     const isAliphaticCarbon = atom.label && /^(CH\d*|H\d*C|C)$/i.test(cleanLabel);
     if (atom.label && !isAliphaticCarbon) {
       let color = "#000000";
-      if (atom.type === "O") color = "#d32f2f"; // Wikipedia Red
-      if (atom.type === "N") color = "#1976d2"; // Wikipedia Blue
-      if (atom.type === "S") color = "#d97706"; // Wikipedia Gold
-      if (atom.type === "P") color = "#7b1fa2"; // Wikipedia Purple
+      if (atom.type === "O") color = "#cc0000"; // Wikipedia Red
+      else if (atom.type === "N") color = "#0000cc"; // Wikipedia Blue
+      else if (atom.type === "S") color = "#d97706"; // Wikipedia Gold/Amber
+      else if (atom.type === "P") color = "#ff7f00"; // Wikipedia Orange/Phosphorus
 
-      let labelWidth = atom.label.length * 7;
-      let labelHeight = 12;
+      const formattedLabel = formatLabelSVG(atom.label);
+      const labelWidth = Math.max(atom.label.length * 7.5, 12);
+      const labelHeight = 13;
       
+      // White mask rectangle behind label for clean bond intersections
       svgContent += `
-        <rect x="${atom.x - labelWidth/2}" y="${atom.y - labelHeight/2 - 1}" width="${labelWidth}" height="${labelHeight * 1.3}" fill="#FFFFFF" />
+        <rect x="${atom.x - labelWidth/2}" y="${atom.y - labelHeight/2 - 1}" width="${labelWidth}" height="${labelHeight * 1.25}" fill="#ffffff" rx="2" ry="2" />
       `;
       
       svgContent += `
-        <text x="${atom.x}" y="${atom.y + 1}" font-family="Arial, Helvetica, sans-serif" font-size="11px" font-weight="normal" fill="${color}" text-anchor="middle" dominant-baseline="middle">${atom.label}</text>
+        <text x="${atom.x}" y="${atom.y + 1}" font-family="Arial, Helvetica, sans-serif" font-size="12.5px" font-weight="bold" fill="${color}" text-anchor="middle" dominant-baseline="middle">${formattedLabel}</text>
       `;
     }
   });
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" width="${width}" height="${height}">${svgContent}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vbX} ${vbY} ${vbW} ${vbH}" width="${width}" height="${height}" style="overflow: visible;">${svgContent}</svg>`;
 }
 
 /**
