@@ -219,8 +219,17 @@ class NADobbleGame {
     const activeQ = isMini ? 2 : 4;
     const activeSymbols = isMini ? NUCLEIC_ACIDS.slice(0, 7) : NUCLEIC_ACIDS;
     
-    const settingsGuaranteeDiff = document.getElementById("set-guarantee-diff-reps") ? document.getElementById("set-guarantee-diff-reps").checked : true;
-    this.deck = generateDobbleDeck(activeSymbols, activeQ, settingsGuaranteeDiff, [0, 1, 2, 3, 4, 5]);
+    const gameAllowedReps = [];
+    document.querySelectorAll(".rep-checkbox input, input.rep-checkbox, .rep-checkbox").forEach(cb => {
+      const input = cb.tagName === "INPUT" ? cb : cb.querySelector("input");
+      if (input && input.checked && !isNaN(parseInt(input.value))) {
+        const val = parseInt(input.value);
+        if (!gameAllowedReps.includes(val)) gameAllowedReps.push(val);
+      }
+    });
+    if (gameAllowedReps.length === 0) gameAllowedReps.push(0, 1, 2, 3, 5);
+
+    this.deck = generateDobbleDeck(activeSymbols, activeQ, settingsGuaranteeDiff, gameAllowedReps);
     
     // Draw playing UI
     this.container.innerHTML = `

@@ -567,7 +567,7 @@ function renderGeneratorPreview() {
       if (!allowedReps.includes(val)) allowedReps.push(val);
     }
   });
-  if (allowedReps.length === 0) allowedReps.push(0, 1, 2, 3, 4, 5);
+  if (allowedReps.length === 0) allowedReps.push(0, 1, 2, 3, 5);
 
   // Generate Dobble Deck using universal algorithm
   const deck = generateDobbleDeck(activeSymbols, activeQ, guaranteeDiff, allowedReps);
