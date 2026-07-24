@@ -510,7 +510,7 @@ function renderEncyclopedia() {
 // ─── Card Generator & Printable Export ────────────────────────────────────────
 function setupGenerator() {
   const shapeSelect = document.getElementById("set-card-shape");
-  const layoutSelect = document.getElementById("set-page-layout");
+  const layoutSelect = document.getElementById("set-print-layout") || document.getElementById("set-page-layout");
   const rotateCheck = document.getElementById("set-random-rotation");
   const guaranteeCheck = document.getElementById("set-guarantee-diff-reps");
   const cheatCheck = document.getElementById("set-show-cheat");
@@ -536,6 +536,9 @@ function setupGenerator() {
   if (btnRegen) {
     btnRegen.addEventListener("click", renderGeneratorPreview);
   }
+
+  // Immediately render generator preview on init
+  renderGeneratorPreview();
 }
 
 function renderGeneratorPreview() {

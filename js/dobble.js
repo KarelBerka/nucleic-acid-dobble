@@ -189,7 +189,7 @@ function generateDobbleDeck(symbols, q = 4, guaranteeDifferentReps = true, allow
   }
 
   // --- Optimization: Maximize Per-Card Representation Diversity & Cap Large Items ---
-  const LARGE_REPS = new Set([3, 4, 5]); // 2D Structure, 3D Model
+  const LARGE_REPS = new Set([4, 5]); // 2D Structure (4), 3D Model (5)
   const maxLargePerCard = q >= 7 ? 3 : 2;
 
   function getCardPenalty(cardIdx) {
