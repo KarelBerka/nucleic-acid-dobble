@@ -635,9 +635,14 @@ function renderGeneratorPreview() {
       `;
     });
 
+    const lang = window.currentLang || "cs";
+    const labelPrefix = lang === "cs" ? "Karta" : (lang === "de" ? "Karte" : (lang === "fr" ? "Carte" : "Card"));
+    let labelText = `${labelPrefix} ${cardIdx + 1}`;
     if (showCheat) {
-      itemsHTML += `<div class="card-label">#${cardIdx + 1}: ${cheatSymbols.join(", ")}</div>`;
+      labelText += ` • ${cheatSymbols.join(", ")}`;
     }
+
+    itemsHTML += `<span style="position: absolute; bottom: 8px; left: 0; right: 0; font-size: 0.6rem; text-align: center; color: var(--text-muted, #94a3b8); pointer-events: none; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700;">${labelText}</span>`;
 
     cardEl.innerHTML = itemsHTML;
     cardsGrid.appendChild(cardEl);
