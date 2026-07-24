@@ -788,9 +788,14 @@ main {
   font-weight: 800;
   color: #0f172a;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 85px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   font-size: calc(7cqi * var(--scale, 1));
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .item-text.item-subtext {
