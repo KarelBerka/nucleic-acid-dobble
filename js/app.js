@@ -2,16 +2,62 @@
 
 // ─── Global State & Language Management ─────────────────────────────────────
 const _VALID_LANGS = ["cs", "en", "de", "fr"];
-const _urlLang = new URLSearchParams(window.location.search).get("lang");
-const _storedLang = localStorage.getItem("na_dobble_lang");
-const _resolvedLang = _VALID_LANGS.includes(_urlLang) ? _urlLang : (_VALID_LANGS.includes(_storedLang) ? _storedLang : "cs");
 
-if (_urlLang && _resolvedLang) {
-  localStorage.setItem("na_dobble_lang", _resolvedLang);
-  const cleanUrl = window.location.pathname;
-  window.history.replaceState({}, "", cleanUrl);
+function getLanguageFromURL() {
+  const hashRaw = window.location.hash || "";
+  if (hashRaw) {
+    let hashClean = hashRaw.replace(/^#\/?/, '').split('?')[0].split('/')[0].trim().toLowerCase();
+    if (hashClean.startsWith("lang=")) {
+      hashClean = hashClean.replace("lang=", "");
+    }
+    if (hashClean === "cz") hashClean = "cs";
+    if (_VALID_LANGS.includes(hashClean)) {
+      return hashClean;
+    }
+  }
+
+  const searchParams = new URLSearchParams(window.location.search);
+  let urlLang = searchParams.get("lang");
+  if (!urlLang) {
+    for (const lang of ["cs", "cz", "en", "de", "fr"]) {
+      if (searchParams.has(lang)) {
+        urlLang = lang;
+        break;
+      }
+    }
+  }
+  if (urlLang) {
+    urlLang = urlLang.trim().toLowerCase();
+    if (urlLang === "cz") urlLang = "cs";
+    if (_VALID_LANGS.includes(urlLang)) {
+      return urlLang;
+    }
+  }
+
+  const path = window.location.pathname.toLowerCase();
+  for (const lang of ["en", "de", "fr", "cs", "cz"]) {
+    if (path.includes("/" + lang + "/") || path.endsWith("/" + lang)) {
+      return lang === "cz" ? "cs" : lang;
+    }
+  }
+
+  return null;
 }
-window.currentLang = _resolvedLang;
+
+function resolveInitialLanguage(storageKey) {
+  const urlLang = getLanguageFromURL();
+  if (urlLang) {
+    localStorage.setItem(storageKey, urlLang);
+    return urlLang;
+  }
+  const storedLang = localStorage.getItem(storageKey);
+  if (storedLang && _VALID_LANGS.includes(storedLang)) {
+    return storedLang;
+  }
+  return "cs";
+}
+
+window.currentLang = resolveInitialLanguage("na_dobble_lang");
 
 // Active Version Mode: "mini" (q=2, 7 symbols, 7 cards) or "full" (q=4, 21 symbols, 21 cards)
 window.currentVersionMode = localStorage.getItem("na_dobble_version") || "full";
@@ -289,23 +335,36 @@ function setupThemeToggle() {
 // ─── Language Management ─────────────────────────────────────────────────────
 function setupLanguageToggle() {
   const langSelect = document.getElementById("lang-toggle");
-  if (!langSelect) return;
-  langSelect.value = window.currentLang;
-  langSelect.addEventListener("change", (e) => {
-    const lang = e.target.value;
-    if (_VALID_LANGS.includes(lang)) {
-      window.currentLang = lang;
-      localStorage.setItem("na_dobble_lang", lang);
-      applyLanguage(lang);
-      
-      // Update Game text if running
-      if (gameObject) gameObject.updateLang();
-      
-      // Update Encyclopedia and Generator
-      renderEncyclopedia();
-      renderGeneratorPreview();
+  if (langSelect) {
+    langSelect.value = window.currentLang;
+    langSelect.addEventListener("change", (e) => {
+      const lang = e.target.value;
+      if (_VALID_LANGS.includes(lang)) {
+        changeLanguage(lang);
+      }
+    });
+  }
+
+  window.addEventListener("hashchange", () => {
+    const urlLang = getLanguageFromURL();
+    if (urlLang && urlLang !== window.currentLang) {
+      changeLanguage(urlLang);
     }
   });
+}
+
+function changeLanguage(lang) {
+  if (!_VALID_LANGS.includes(lang)) return;
+  window.currentLang = lang;
+  localStorage.setItem("na_dobble_lang", lang);
+  applyLanguage(lang);
+  
+  const langSelect = document.getElementById("lang-toggle");
+  if (langSelect) langSelect.value = lang;
+
+  if (gameObject) gameObject.updateLang();
+  renderEncyclopedia();
+  renderGeneratorPreview();
 }
 
 function applyLanguage(lang) {
