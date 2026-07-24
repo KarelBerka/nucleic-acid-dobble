@@ -542,7 +542,7 @@ function setupGenerator() {
 }
 
 function renderGeneratorPreview() {
-  const container = document.getElementById("cards-preview-container");
+  const container = document.getElementById("generator-cards-grid") || document.getElementById("cards-preview-container");
   if (!container) return;
 
   const isMini = window.currentVersionMode === "mini";
@@ -560,18 +560,31 @@ function renderGeneratorPreview() {
 
   // Active Rep Types
   const allowedReps = [];
-  document.querySelectorAll(".rep-checkbox input").forEach(cb => {
-    if (cb.checked) allowedReps.push(parseInt(cb.value));
+  document.querySelectorAll(".rep-checkbox input, input.rep-checkbox, .rep-checkbox").forEach(cb => {
+    const input = cb.tagName === "INPUT" ? cb : cb.querySelector("input");
+    if (input && input.checked && !isNaN(parseInt(input.value))) {
+      const val = parseInt(input.value);
+      if (!allowedReps.includes(val)) allowedReps.push(val);
+    }
   });
-  if (allowedReps.length === 0) allowedReps.push(0);
+  if (allowedReps.length === 0) allowedReps.push(0, 1, 2, 3, 4, 5);
 
   // Generate Dobble Deck using universal algorithm
   const deck = generateDobbleDeck(activeSymbols, activeQ, guaranteeDiff, allowedReps);
 
   const lang = window.currentLang || "cs";
-  const cardsGrid = document.createElement("div");
-  cardsGrid.className = "cards-grid";
-  cardsGrid.setAttribute("data-layout", pageLayout);
+
+  // Check if container itself is the grid
+  let grid = container.id === "generator-cards-grid" ? container : container.querySelector(".cards-grid");
+  if (!grid) {
+    grid = document.createElement("div");
+    grid.className = "cards-grid";
+    container.appendChild(grid);
+  }
+
+  grid.className = "cards-grid";
+  grid.setAttribute("data-layout", pageLayout);
+  grid.innerHTML = "";
 
   deck.forEach((card, cardIdx) => {
     const cardEl = document.createElement("div");
@@ -600,7 +613,8 @@ function renderGeneratorPreview() {
 
     card.items.forEach((item, idx) => {
       const pos = positions[idx] || { x: 50, y: 50 };
-      const na = item.symbol;
+      const na = item.symbol || item.na;
+      if (!na) return;
       const rep = item.repType;
       
       cheatSymbols.push(na.code3);
@@ -638,7 +652,6 @@ function renderGeneratorPreview() {
       `;
     });
 
-    const lang = window.currentLang || "cs";
     const labelPrefix = lang === "cs" ? "Karta" : (lang === "de" ? "Karte" : (lang === "fr" ? "Carte" : "Card"));
     let labelText = `${labelPrefix} ${cardIdx + 1}`;
     if (showCheat) {
@@ -648,11 +661,8 @@ function renderGeneratorPreview() {
     itemsHTML += `<span style="position: absolute; bottom: 8px; left: 0; right: 0; font-size: 0.6rem; text-align: center; color: var(--text-muted, #94a3b8); pointer-events: none; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700;">${labelText}</span>`;
 
     cardEl.innerHTML = itemsHTML;
-    cardsGrid.appendChild(cardEl);
+    grid.appendChild(cardEl);
   });
-
-  container.innerHTML = "";
-  container.appendChild(cardsGrid);
 }
 
 // Global functions attached to window for inline HTML handlers
