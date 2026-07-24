@@ -188,18 +188,105 @@ function generateDobbleDeck(symbols, q = 4, guaranteeDifferentReps = true, allow
     }
   }
 
-  // Build final deck
+  // --- Optimization: Maximize Per-Card Representation Diversity & Cap Large Items ---
+  const LARGE_REPS = new Set([3, 4, 5]); // 2D Structure, 3D Model
+  const maxLargePerCard = q >= 7 ? 3 : 2;
+
+  function getCardPenalty(cardIdx) {
+    const cardSyms = rawCards[cardIdx];
+    const reps = cardSyms.map(symIdx => repMapping[symIdx][cardIdx]);
+    const counts = {};
+    let duplicates = 0;
+    let largeCount = 0;
+    for (const r of reps) {
+      counts[r] = (counts[r] || 0) + 1;
+      if (counts[r] > 1) duplicates += (counts[r] - 1);
+      if (LARGE_REPS.has(r)) largeCount++;
+    }
+    let penalty = duplicates * 10;
+    if (largeCount > maxLargePerCard) {
+      penalty += (largeCount - maxLargePerCard) * 50;
+    }
+    return penalty;
+  }
+
+  // Iterative Swap Optimization across occurrences to maximize unique reps on each card
+  for (let iter = 0; iter < 1000; iter++) {
+    const symIdx = Math.floor(Math.random() * n);
+    const cardIndices = occurrences[symIdx];
+    if (cardIndices.length < 2) continue;
+
+    const i = Math.floor(Math.random() * cardIndices.length);
+    let j = Math.floor(Math.random() * cardIndices.length);
+    while (i === j) j = Math.floor(Math.random() * cardIndices.length);
+
+    const cardA = cardIndices[i];
+    const cardB = cardIndices[j];
+    const repA = repMapping[symIdx][cardA];
+    const repB = repMapping[symIdx][cardB];
+
+    if (repA === repB) continue;
+
+    const penaltyBefore = getCardPenalty(cardA) + getCardPenalty(cardB);
+
+    repMapping[symIdx][cardA] = repB;
+    repMapping[symIdx][cardB] = repA;
+
+    const penaltyAfter = getCardPenalty(cardA) + getCardPenalty(cardB);
+
+    if (penaltyAfter > penaltyBefore) {
+      // Revert swap if penalty increased
+      repMapping[symIdx][cardA] = repA;
+      repMapping[symIdx][cardB] = repB;
+    }
+  }
+
+  // Hard fallback: if any card still has > maxLargePerCard large items, convert excess large items to a compact representation
+  const compactFallback = allowedReps.find(r => !LARGE_REPS.has(r)) ?? allowedReps[0];
+  for (let cardIdx = 0; cardIdx < rawCards.length; cardIdx++) {
+    const cardSyms = rawCards[cardIdx];
+    let largeCount = 0;
+    cardSyms.forEach(symIdx => {
+      if (LARGE_REPS.has(repMapping[symIdx][cardIdx])) {
+        largeCount++;
+        if (largeCount > maxLargePerCard) {
+          repMapping[symIdx][cardIdx] = compactFallback;
+        }
+      }
+    });
+  }
+
+  // Build the final deck structure
   const deck = rawCards.map((cardPoints, cardIdx) => {
     let items = cardPoints.map(symIdx => ({
       symbol: symbols[symIdx],
+      na: symbols[symIdx],
       repType: repMapping[symIdx][cardIdx]
     }));
-    // Shuffle items on card
-    for (let i = items.length - 1; i > 0; i--) {
+
+    // Sort items so large items are separated by small items
+    const large = items.filter(it => LARGE_REPS.has(it.repType));
+    const small = items.filter(it => !LARGE_REPS.has(it.repType));
+
+    for (let i = small.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [items[i], items[j]] = [items[j], items[i]];
+      [small[i], small[j]] = [small[j], small[i]];
     }
-    return { id: cardIdx, items };
+
+    let arrangedItems = [];
+    if (k === 5 && large.length === 2 && small.length >= 3) {
+      arrangedItems = [small[0], large[0], small[1], small[2], large[1]];
+    } else if (k === 5 && large.length === 1 && small.length >= 4) {
+      arrangedItems = [small[0], large[0], small[1], small[2], small[3]];
+    } else {
+      arrangedItems = items;
+      for (let i = arrangedItems.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arrangedItems[i], arrangedItems[j]] = [arrangedItems[j], arrangedItems[i]];
+      }
+    }
+
+    return { id: cardIdx, items: arrangedItems };
   });
 
   return deck;
